@@ -92,6 +92,11 @@ ignore:
 theme: cheatsheets
 
 # Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
+## Docs: https://hexo.io/docs/deployment.html
+## 这里使用git部署网站
 deploy:
-  type: ''
+  type: git
+  repo: git@cs.hufeifei.cn:repo/cs.hufeifei.cn.git
+  branch: master
+  message: "hexo deployment: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
