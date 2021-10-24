@@ -1,0 +1,3 @@
+[submodule "themes/cheatsheets"]
+	path = themes/cheatsheets
+	url = https://github.com/holmofy/hexo-cheatsheets
