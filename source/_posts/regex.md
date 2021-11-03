@@ -8,6 +8,8 @@ description: 正则表达式参考手册
 ## get started
 
 参考：
+* 正则表达式教程：https://github.com/ziishaned/learn-regex
+* 正则在线测试工具：https://regex101.com/
 * 正则表达式入门教程：https://posts.hufeifei.cn/basic/regex-basic/
 * 深入理解正则表达式高级教程：https://posts.hufeifei.cn/basic/deep-regex/
 
