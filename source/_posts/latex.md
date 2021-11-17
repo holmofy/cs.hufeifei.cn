@@ -25,18 +25,18 @@ description: Latex公式参考手册
 | `\check{a}, \breve{a}, \tilde{a}, \bar{a}` | $ \check{a}, \breve{a}, \tilde{a}, \bar{a} $ |
 |      `\hat{a}, \widehat{a}, \vec{a}`       | $ \hat{a}, \widehat{a}, \vec{a} $            |
 
-|                                      标准函数                                      |                                                                                      |
-| :--------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
-|                        `\exp_a b = a^b, \exp b = e^b, 10^m`                        | $ \exp_a b = a^b, \exp b = e^b, 10^m $                                               |
-|                        `\ln c, \lg d = \log e, \log_{10} f`                        | $ \ln c, \lg d = \log e, \log_{10} f $                                               |
-|                  `\sin a, \cos b, \tan c, \cot d, \sec e, \csc f`                  | $ \sin a, \cos b, \tan c, \cot d, \sec e, \csc f $                                   |
-|                         `\arcsin a, \arccos b, \arctan c`                          | $ \arcsin a, \arccos b, \arctan c $                                                  |
-|                         `\arccot d, \arcsec e, \arccsc f`                          | $ \arccot d, \arcsec e, \arccsc f $                                                  |
-|                        `\sinh a, \cosh b, \tanh c, \coth d`                        | $ \sinh a, \cosh b, \tanh c, \coth d $                                               |
+|                           标准函数                           |                                                              |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+|             `\exp_a b = a^b, \exp b = e^b, 10^m`             | $ \exp_a b = a^b, \exp b = e^b, 10^m $                       |
+|             `\ln c, \lg d = \log e, \log_{10} f`             | $ \ln c, \lg d = \log e, \log_{10} f $                       |
+|       `\sin a, \cos b, \tan c, \cot d, \sec e, \csc f`       | $ \sin a, \cos b, \tan c, \cot d, \sec e, \csc f $           |
+|              `\arcsin a, \arccos b, \arctan c`               | $ \arcsin a, \arccos b, \arctan c $                          |
+|              `\arccot d, \arcsec e, \arccsc f`               | $\arccot d, \arcsec e, \arccsc f$                            |
+|             `\sinh a, \cosh b, \tanh c, \coth d`             | $ \sinh a, \cosh b, \tanh c, \coth d $                       |
 | `\operatorname{sh}k, \operatorname{ch}l, \operatorname{th}m, \operatorname{coth}n` | $ \operatorname{sh}k, \operatorname{ch}l, \operatorname{th}m, \operatorname{coth}n $ |
-|       `\operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q`        | $ \operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q $              |
-|                         `\sgn r, \left\vert s \right\vert`                         | $ \sgn r, \left\vert s \right\vert $                                                 |
-|                               `\min(x,y), \max(x,y)`                               | $ \min(x,y), \max(x,y) $                                                             |
+| `\operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q` | $ \operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q $ |
+|              `\sgn r, \left\vert s \right\vert`              | $ \sgn r, \left\vert s \right\vert $                         |
+|                    `\min(x,y), \max(x,y)`                    | $ \min(x,y), \max(x,y) $                                     |
 
 |                界限                |                                      |
 | :--------------------------------: | ------------------------------------ |
@@ -367,7 +367,7 @@ description: Latex公式参考手册
 | 方括号，中括号 |             \left**[** \frac{a}{b} \right**]**             |               $  \left[ \frac{a}{b} \right] $                |
 | 花括号，大括号 |            \left**\{** \frac{a}{b} \right**\}**            |              $  \left\{ \frac{a}{b} \right\} $               |
 |     角括号     |      \left **\langle** \frac{a}{b} \right **\rangle**      |        $  \left \langle \frac{a}{b} \right \rangle $         |
-| 单竖线，绝对值 |            \left**\|** \frac{a}{b} \right**\|**            |              $  \left\| \frac{a}{b} \right\| $               |
+| 单竖线，绝对值 |           \left **\|** \frac{a}{b} \right **\|**           |              $  \left\| \frac{a}{b} \right\| $               |
 |  双竖线，范数  |           \left **\|** \frac{a}{b} \right **\|**           |             $  \left \| \frac{a}{b} \right \| $              |
 |    高斯符号    |      \left **\lbrack** \frac{a}{b} \right **\rbrack**      |        $  \left \lbrack \frac{a}{b} \right \rbrack $         |
 |    取底符号    |      \left **\lfloor** \frac{a}{b} \right **\rfloor**      |        $  \left \lfloor \frac{a}{b} \right \rfloor $         |
@@ -376,15 +376,14 @@ description: Latex公式参考手册
 |    上下箭头    |    \left **\uparrow** \frac{a}{b} \right **\downarrow**    |      $  \left \uparrow \frac{a}{b} \right \downarrow $       |
 |                |    \left **\Uparrow** \frac{a}{b} \right **\Downarrow**    |      $  \left \Uparrow \frac{a}{b} \right \Downarrow $       |
 |                | \left **\updownarrow** \frac{a}{b} \right **\Updownarrow** |    $ \left \updownarrow \frac{a}{b} \right \Updownarrow $    |
-|    混合括号    |   \left  0,1 \right ) <br />\left \langle \psi \right \|   | $\left 0,1 \right )$ <br />$ \left \langle \psi \right \|  $ |
+|    混合括号    |   \left [ 0,1 \right )<br />\left \langle \psi \right \|   | $\left [ 0,1 \right )$ <br />$ \left \langle \psi \right \|  $ |
 |    单左括号    |             \left \{ \frac{a}{b} **\right .**              |              $  \left \{ \frac{a}{b} \right . $              |
 |    单右括号    |             **\left .** \frac{a}{b} \right \}              |              $  \left . \frac{a}{b} \right \} $              |
 
 > - 可以使用 `\big, \Big, \bigg, \Bigg` 控制括号的大小，比如代码
 >
 > **\Bigg** ( **\bigg** [ **\Big** \{ **\big** \langle \left | \| \frac{a}{b} \| \right | **\big** \rangle **\Big** \} **\bigg** ] **\Bigg** )
->
-> $$
+>$$
 > \Bigg ( \bigg [ \Big \{ \big \langle \left | \| \frac{a}{b} \| \right | \big \rangle \Big \} \bigg ] \Bigg )
 > $$
 
@@ -429,6 +428,7 @@ description: Latex公式参考手册
 | $ {\color{Turquoise}Turquoise} $           | $ {\color{Violet}Violet} $                 | $ {\color{VioletRed}VioletRed} $     | <span style="background:black">$ {\color{White}White} $ </span> |
 | $ {\color{WildStrawberry}WildStrawberry} $ | $ {\color{Yellow}Yellow} $                 | $ {\color{YellowGreen}YellowGreen} $ | $ {\color{YellowOrange}YellowOrange} $                          |
 
+> 例子：
 > - `{\color{Blue}x^2}+{\color{Brown}2x} - {\color{OliveGreen}1}`
 >   $$
 >   {\color{Blue}x^2}+{\color{Brown}2x} - {\color{OliveGreen}1}
