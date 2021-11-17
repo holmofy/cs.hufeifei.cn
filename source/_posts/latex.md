@@ -212,7 +212,7 @@ description: Latex公式参考手册
 | :----------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |        分数        |                                                                                                `\frac{2}{4}=0.5`                                                                                                |                                                                                                $ \frac{2}{4}=0.5 $                                                                                                |
 |                    |                                                                                                  `{2 \over 3}`                                                                                                  |                                                                                                  $ {2 \over 3} $                                                                                                  |
-|                    |                                                                                              `{{a+b} \over {a-b}}`                                                                                              |                                                                                              $ {{a+b} \over {a-b}} $                                                                                              |
+|                    |                                                                                              `{{a+b} \over {a-b}}`                                                                                              |                                                                                              $ { {a+b} \over {a-b} } $                                                                                              |
 |      小型分数      |                                                                                              `\tfrac{2}{4} = 0.5`                                                                                               |                                                                                              $ \tfrac{2}{4} = 0.5 $                                                                                               |
 |  大型分数（嵌套）  |                                                                                `\cfrac{2}{c + \cfrac{2}{d + \cfrac{2}{4}}} = a`                                                                                 |                                                                                $ \cfrac{2}{c + \cfrac{2}{d + \cfrac{2}{4}}} = a $                                                                                 |
 | 大型分数（不嵌套） |                                                                   `\dfrac{2}{4} = 0.5 \qquad \dfrac{2}{c + \dfrac{2}{d + \dfrac{2}{4}}} = a`                                                                    |                                                                   $ \dfrac{2}{4} = 0.5 \qquad \dfrac{2}{c + \dfrac{2}{d + \dfrac{2}{4}}} = a $                                                                    |
@@ -400,25 +400,25 @@ description: Latex公式参考手册
 
 **支持色调表**
 
-|                                            |                                            |                                      |                                          |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------ | ---------------------------------------- |
-| $ {\color{Apricot}Apricot} $               | $ {\color{Aquamarine}Aquamarine} $         | $ {\color{Bittersweet}Bittersweet} $ | $ {\color{Black}Black} $                 |
-| $ {\color{Blue}Blue} $                     | $ {\color{BlueGreen}BlueGreen} $           | $ {\color{BlueViolet}BlueViolet} $   | $ {\color{BrickRed}BrickRed} $           |
-| $ {\color{Brown}Brown} $                   | $ {\color{BurntOrange}BurntOrange} $       | $ {\color{CadetBlue}CadetBlue} $     | $ {\color{CarnationPink}CarnationPink} $ |
-| $ {\color{Cerulean}Cerulean} $             | $ {\color{CornflowerBlue}CornflowerBlue} $ | $ {\color{Cyan}Cyan} $               | $ {\color{Dandelion}Dandelion} $         |
-| $ {\color{DarkOrchid}DarkOrchid} $         | $ {\color{Emerald}Emerald} $               | $ {\color{ForestGreen}ForestGreen} $ | $ {\color{Fuchsia}Fuchsia} $             |
-| $ {\color{Goldenrod}Goldenrod} $           | $ {\color{Gray}Gray} $                     | $ {\color{Green}Green} $             | $ {\color{GreenYellow}GreenYellow} $     |
-| $ {\color{JungleGreen}JungleGreen} $       | $ {\color{Lavender}Lavender} $             | $ {\color{LimeGreen}LimeGreen} $     | $ {\color{Magenta}Magenta} $             |
-| $ {\color{Mahogany}Mahogany} $             | $ {\color{Maroon}Maroon} $                 | $ {\color{Melon}Melon} $             | $ {\color{MidnightBlue}MidnightBlue} $   |
-| $ {\color{Mulberry}Mulberry} $             | $ {\color{NavyBlue}NavyBlue} $             | $ {\color{OliveGreen}OliveGreen} $   | $ {\color{Orange}Orange} $               |
-| $ {\color{OrangeRed}OrangeRed} $           | $ {\color{Orchid}Orchid} $                 | $ {\color{Peach}Peach} $             | $ {\color{Periwinkle}Periwinkle} $       |
-| $ {\color{PineGreen}PineGreen} $           | $ {\color{Plum}Plum} $                     | $ {\color{ProcessBlue}ProcessBlue} $ | $ {\color{Purple}Purple} $               |
-| $ {\color{RawSienna}RawSienna} $           | $ {\color{Red}Red} $                       | $ {\color{RedOrange}RedOrange} $     | $ {\color{RedViolet}RedViolet} $         |
-| $ {\color{Rhodamine}Rhodamine} $           | $ {\color{RoyalBlue}RoyalBlue} $           | $ {\color{RoyalPurple}RoyalPurple} $ | $ {\color{RubineRed}RubineRed} $         |
-| $ {\color{Salmon}Salmon} $                 | $ {\color{SeaGreen}SeaGreen} $             | $ {\color{Sepia}Sepia} $             | $ {\color{SkyBlue}SkyBlue} $             |
-| $ {\color{SpringGreen}SpringGreen} $       | $ {\color{Tan}Tan} $                       | $ {\color{TealBlue}TealBlue} $       | $ {\color{Thistle}Thistle} $             |
-| $ {\color{Turquoise}Turquoise} $           | $ {\color{Violet}Violet} $                 | $ {\color{VioletRed}VioletRed} $     | <span style="background:black">$ {\color{White}White} $ </span>               |
-| $ {\color{WildStrawberry}WildStrawberry} $ | $ {\color{Yellow}Yellow} $                 | $ {\color{YellowGreen}YellowGreen} $ | $ {\color{YellowOrange}YellowOrange} $   |
+|                                            |                                            |                                      |                                                                 |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------ | --------------------------------------------------------------- |
+| $ {\color{Apricot}Apricot} $               | $ {\color{Aquamarine}Aquamarine} $         | $ {\color{Bittersweet}Bittersweet} $ | $ {\color{Black}Black} $                                        |
+| $ {\color{Blue}Blue} $                     | $ {\color{BlueGreen}BlueGreen} $           | $ {\color{BlueViolet}BlueViolet} $   | $ {\color{BrickRed}BrickRed} $                                  |
+| $ {\color{Brown}Brown} $                   | $ {\color{BurntOrange}BurntOrange} $       | $ {\color{CadetBlue}CadetBlue} $     | $ {\color{CarnationPink}CarnationPink} $                        |
+| $ {\color{Cerulean}Cerulean} $             | $ {\color{CornflowerBlue}CornflowerBlue} $ | $ {\color{Cyan}Cyan} $               | $ {\color{Dandelion}Dandelion} $                                |
+| $ {\color{DarkOrchid}DarkOrchid} $         | $ {\color{Emerald}Emerald} $               | $ {\color{ForestGreen}ForestGreen} $ | $ {\color{Fuchsia}Fuchsia} $                                    |
+| $ {\color{Goldenrod}Goldenrod} $           | $ {\color{Gray}Gray} $                     | $ {\color{Green}Green} $             | $ {\color{GreenYellow}GreenYellow} $                            |
+| $ {\color{JungleGreen}JungleGreen} $       | $ {\color{Lavender}Lavender} $             | $ {\color{LimeGreen}LimeGreen} $     | $ {\color{Magenta}Magenta} $                                    |
+| $ {\color{Mahogany}Mahogany} $             | $ {\color{Maroon}Maroon} $                 | $ {\color{Melon}Melon} $             | $ {\color{MidnightBlue}MidnightBlue} $                          |
+| $ {\color{Mulberry}Mulberry} $             | $ {\color{NavyBlue}NavyBlue} $             | $ {\color{OliveGreen}OliveGreen} $   | $ {\color{Orange}Orange} $                                      |
+| $ {\color{OrangeRed}OrangeRed} $           | $ {\color{Orchid}Orchid} $                 | $ {\color{Peach}Peach} $             | $ {\color{Periwinkle}Periwinkle} $                              |
+| $ {\color{PineGreen}PineGreen} $           | $ {\color{Plum}Plum} $                     | $ {\color{ProcessBlue}ProcessBlue} $ | $ {\color{Purple}Purple} $                                      |
+| $ {\color{RawSienna}RawSienna} $           | $ {\color{Red}Red} $                       | $ {\color{RedOrange}RedOrange} $     | $ {\color{RedViolet}RedViolet} $                                |
+| $ {\color{Rhodamine}Rhodamine} $           | $ {\color{RoyalBlue}RoyalBlue} $           | $ {\color{RoyalPurple}RoyalPurple} $ | $ {\color{RubineRed}RubineRed} $                                |
+| $ {\color{Salmon}Salmon} $                 | $ {\color{SeaGreen}SeaGreen} $             | $ {\color{Sepia}Sepia} $             | $ {\color{SkyBlue}SkyBlue} $                                    |
+| $ {\color{SpringGreen}SpringGreen} $       | $ {\color{Tan}Tan} $                       | $ {\color{TealBlue}TealBlue} $       | $ {\color{Thistle}Thistle} $                                    |
+| $ {\color{Turquoise}Turquoise} $           | $ {\color{Violet}Violet} $                 | $ {\color{VioletRed}VioletRed} $     | <span style="background:black">$ {\color{White}White} $ </span> |
+| $ {\color{WildStrawberry}WildStrawberry} $ | $ {\color{Yellow}Yellow} $                 | $ {\color{YellowGreen}YellowGreen} $ | $ {\color{YellowOrange}YellowOrange} $                          |
 
 > - `{\color{Blue}x^2}+{\color{Brown}2x} - {\color{OliveGreen}1}`
 >   $$
@@ -428,5 +428,5 @@ description: Latex公式参考手册
 >
 > - `x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{{\color{Maroon}b^2-4ac}}}{2a}`
 >   $$
->   x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{{\color{Maroon}b^2-4ac}}}{2a}
+>   x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{ {\color{Maroon}b^2-4ac}}}{2a}
 >   $$
