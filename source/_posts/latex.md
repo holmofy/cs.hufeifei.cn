@@ -8,6 +8,8 @@ description: Latex公式参考手册
 
 ## get started
 
+参考：https://zh.wikipedia.org/wiki/Help:%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F
+
 <style>
 .h3-section-list {
     columns: 1 !important;
@@ -246,7 +248,6 @@ code.language-latex{
 |                    | <pre class="language-latex"><code class="language-latex">\begin{alignat}{3} <br />f(x) & = (m-n)^2 \\ <br />f(x) & = (-m+n)^2 \\ <br />& = m^2-2mn+n^2 \\ <br />\end{alignat}</code></pre> | $ \begin{alignat}{3} f(x) & = (m-n)^2 \newline f(x) & = (-m+n)^2 \newline & = m^2-2mn+n^2 \newline \end{alignat}  $ |
 | 多行等式（左对齐） | <pre class="language-latex"><code class="language-latex">\begin{array}{lcl} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z  <br />\end{array}</code></pre> | $ \begin{array}{lcl} z & = & a \newline f(x,y,z) & = & x + y + z \end{array} $ |
 | 多行等式（右对齐） | <pre class="language-latex"><code class="language-latex">\begin{array}{lcr} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z     <br />\end{array}</code></pre> | $ \begin{array}{lcr} z & = & a \newline f(x,y,z) & = & x + y + z \end{array} $ |
-|     长公式换行     | <pre class="language-latex"><code><br /><math>f(x) \,\!</math> <br /><math>= \sum_{n=0}^\infty a_n x^n </math> <br /><math>= a_0+a_1x+a_2x^2+\cdots</math></code></pre> | <math>f(x) \,\!</math> <math>= \sum_{n=0}^\infty a_n x^n </math> <math>= a_0+a_1x+a_2x^2+\cdots</math> |
 |       方程组       | <pre class="language-latex"><code class="language-latex">\begin{cases} <br />3x + 5y +  z \\ <br />7x - 2y + 4z \\ <br />-6x + 3y + 2z <br />\end{cases}</code></pre> | $\begin{cases} 3x + 5y +  z \newline 7x - 2y + 4z \newline -6x + 3y + 2z \end{cases} $ |
 |        数组        | <pre class="language-latex"><code class="language-latex">\begin{array}{\|c\|c\|\|c\|} a & b & S \\ <br />\hline <br />0&0&1\\ <br />0&1&1\\ <br />1&0&1\\ <br />1&1&0\\ <br />\end{array} </code></pre> | $\begin{array}{\| c \| c \|  \| c \|} a & b & S \newline \hline 0&0&1 \newline 0&1&1 \newline 1&0&1 \newline 1&1&0 \newline \end{array}$ |
 
