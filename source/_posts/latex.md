@@ -8,13 +8,17 @@ description: Latex公式参考手册
 
 ## get started
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <style>
 .h3-section-list {
     columns: 1 !important;
 }
 .MarkdownBody table td:first-child {
     white-space: normal;
+}
+code.language-latex{
+    background-color: #eff0f1;
+    padding: 1px 5px;
 }
 </style>
 
@@ -447,5 +451,5 @@ description: Latex公式参考手册
 >   x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{ {\color{Maroon}b^2-4ac}}}{2a}
 >   $$
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
