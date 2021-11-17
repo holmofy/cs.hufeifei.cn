@@ -10,6 +10,8 @@ description: Latex公式参考手册
 
 参考：https://zh.wikipedia.org/wiki/Help:%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F
 
+> 红色为Mathjax不支持的语法
+
 <style>
 .h3-section-list {
     columns: 1 !important;
@@ -346,6 +348,8 @@ code.language-latex{
 |              小型手写体              |                                        |
 | :----------------------------------: | -------------------------------------- |
 | `{\scriptstyle\text{abcdefghijklm}}` | $ {\scriptstyle\text{abcdefghijklm}} $ |
+
+> 大写的希腊字母支持11个：$\Gamma \Delta \Theta \Lambda \Xi \Pi \Sigma \Upsilon \Phi \Psi \Omega$
 
 ### 混合字体
 
