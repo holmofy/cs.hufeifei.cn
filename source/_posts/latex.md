@@ -9,6 +9,7 @@ description: Latex公式参考手册
 ## get started
 
 参考：https://zh.wikipedia.org/wiki/Help:%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F
+编辑器：https://latex.hufeifei.cn/
 
 > 红色为Mathjax不支持的语法
 
