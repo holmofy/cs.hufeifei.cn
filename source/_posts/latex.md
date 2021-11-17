@@ -8,6 +8,7 @@ description: Latex公式参考手册
 
 ## get started
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
 <style>
 .h3-section-list {
     columns: 1 !important;
@@ -197,15 +198,15 @@ description: Latex公式参考手册
 |                            下括号                            |                 `\underbrace{a+b+\cdots+z}`                  |                $ \underbrace{a+b+\cdots+z} $                 |
 |                                                              |              `\underbrace{ a+b+\cdots+z }_{26}`              |             $ \underbrace{ a+b+\cdots+z }_{26} $             |
 |                             求和                             |                      `\sum_{k=1}^N k^2`                      |                     $ \sum_{k=1}^N k^2 $                     |
-|                                                              | <pre lang="latex"><code lang="latex">\begin{matrix} <br />\sum_{k=1}^N k^2 <br />\end{matrix}</code></pre> |       $ \begin{matrix} \sum_{k=1}^N k^2 \end{matrix} $       |
+|                                                              | <pre><code class="language-latex">\begin{matrix} <br />\sum_{k=1}^N k^2 <br />\end{matrix}</code></pre> |       $ \begin{matrix} \sum_{k=1}^N k^2 \end{matrix} $       |
 |                             求积                             |                     `\prod_{i=1}^N x_i`                      |                    $ \prod_{i=1}^N x_i $                     |
-|                                                              | <pre lang="latex"><code lang="latex">\begin{matrix} <br />\prod_{i=1}^N x_i <br />\end{matrix}</code></pre> |      $ \begin{matrix} \prod_{i=1}^N x_i \end{matrix} $       |
+|                                                              | <pre><code class="language-latex">\begin{matrix} <br />\prod_{i=1}^N x_i <br />\end{matrix}</code></pre> |      $ \begin{matrix} \prod_{i=1}^N x_i \end{matrix} $       |
 |                             上积                             |                    `\coprod_{i=1}^N x_i`                     |                   $ \coprod_{i=1}^N x_i $                    |
-|                                                              | <pre lang="latex"><code lang="latex">\begin{matrix} <br />\coprod_{i=1}^N x_i <br />\end{matrix}</code></pre> |     $ \begin{matrix} \coprod_{i=1}^N x_i \end{matrix} $      |
+|                                                              | <pre><code class="language-latex">\begin{matrix} <br />\coprod_{i=1}^N x_i <br />\end{matrix}</code></pre> |     $ \begin{matrix} \coprod_{i=1}^N x_i \end{matrix} $      |
 |                             极限                             |                   `\lim_{n \to \infty}x_n`                   |                  $ \lim_{n \to \infty}x_n $                  |
-|                                                              | <pre lang="latex"><code lang="latex">\begin{matrix} <br />\lim_{n \to \infty}x_n <br />\end{matrix}</code></pre> |    $ \begin{matrix} \lim_{n \to \infty}x_n \end{matrix} $    |
+|                                                              | <pre><code class="language-latex">\begin{matrix} <br />\lim_{n \to \infty}x_n <br />\end{matrix}</code></pre> |    $ \begin{matrix} \lim_{n \to \infty}x_n \end{matrix} $    |
 |                             积分                             |              `\int_{-N}^{N} e^x\, \mathrm{d}x`               |             $ \int_{-N}^{N} e^x\, \mathrm{d}x $              |
-|                                                              | <pre lang="latex"><code lang="latex">\begin{matrix} <br />\int_{-N}^{N} e^x\, \mathrm{d}x <br />\end{matrix}</code></pre> | $ \begin{matrix} \int_{-N}^{N} e^x\, \mathrm{d}x \end{matrix} $ |
+|                                                              | <pre><code class="language-latex">\begin{matrix} <br />\int_{-N}^{N} e^x\, \mathrm{d}x <br />\end{matrix}</code></pre> | $ \begin{matrix} \int_{-N}^{N} e^x\, \mathrm{d}x \end{matrix} $ |
 |                           双重积分                           |         `\iint_{D}^{W} \, \mathrm{d}x\,\mathrm{d}y`          |        $ \iint_{D}^{W} \, \mathrm{d}x\,\mathrm{d}y $         |
 |                           三重积分                           |  `\iiint_{E}^{V} \, \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z`   | $ \iiint_{E}^{V} \, \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z $  |
 |                           四重积分                           | `\iiiint_{F}^{U} \, \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\,\mathrm{d}t` | $ \iiiint_{F}^{U} \, \mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\,\mathrm{d}t $ |
@@ -229,22 +230,22 @@ description: Latex公式参考手册
 |                    | `n \choose n-r, n^2 \choose r_1, a-b \choose c+d, {n \choose 0}+{n \choose 1}` | $ n \choose n-r$,$ n^2 \choose r_1$,$ a-b \choose c+d$,$ {n \choose 0}+{n \choose 1} $ |
 |   小型二项式系数   | `\tbinom{n}{r}=\tbinom{n}{n-r}=\mathrm{C}_n^r=\mathrm{C}_n^{n-r}` | $ \tbinom{n}{r}=\tbinom{n}{n-r}=\mathrm{C}_n^r=\mathrm{C}_n^{n-r} $ |
 |   大型二项式系数   | `\binom{n}{r}=\dbinom{n}{n-r}=\mathrm{C}_n^r=\mathrm{C}_n^{n-r}` | $ \binom{n}{r}=\dbinom{n}{n-r}=\mathrm{C}_n^r=\mathrm{C}_n^{n-r} $ |
-|        矩阵        | <pre lang="latex"><code lang="latex">\begin{matrix}<br /> x & y \\ <br />z & v <br />\end{matrix}</code></pre> |        $ \begin{matrix} x & y \\ z & v \end{matrix} $        |
-|                    | <pre lang="latex"><code lang="latex">\begin{vmatrix} <br />x & y \\ <br />z & v <br />\end{vmatrix}</code></pre> |       $ \begin{vmatrix} x & y \\ z & v \end{vmatrix} $       |
-|                    | <pre lang="latex"><code lang="latex">\begin{Vmatrix} <br />x & y \\ <br />z & v <br />\end{Vmatrix}</code></pre> |       $ \begin{Vmatrix} x & y \\ z & v \end{Vmatrix} $       |
-|                    | <pre lang="latex"><code lang="latex">\begin{bmatrix} <br />0      & \cdots & 0      \\ <br />\vdots & \ddots & \vdots \\ <br />0      & \cdots & 0 <br />\end{bmatrix}</code></pre> | $ \begin{bmatrix} 0      & \cdots & 0      \\ \vdots & \ddots & \vdots \\ 0      & \cdots & 0 \end{bmatrix} $ |
-|                    | <pre lang="latex"><code lang="latex">\begin{Bmatrix}<br /> x & y \\ <br />z & v <br />\end{Bmatrix}</code></pre> |       $ \begin{Bmatrix} x & y \\ z & v \end{Bmatrix} $       |
-|                    | <pre lang="latex"><code lang="latex">\begin{pmatrix} <br />x & y \\ <br />z & v <br />\end{pmatrix}</code></pre> |       $ \begin{pmatrix} x & y \\ z & v \end{pmatrix} $       |
-|                    | <pre lang="latex"><code lang="latex">\bigl( \begin{smallmatrix}<br /> a&b\\ c&d <br />\end{smallmatrix} \bigr) </code></pre> | $ \bigl( \begin{smallmatrix} a&b\\ c&d \end{smallmatrix} \bigr)  $ |
-|      条件定义      | <pre lang="latex"><code lang="latex">f(n) = <br />\begin{cases} <br /> n/2,  & \mbox{if }n\mbox{ is even} \\ <br />3n+1, & \mbox{if }n\mbox{ is odd} <br />\end{cases}</code></pre> | $ f(n) = \begin{cases}  n/2,  & \mbox{if }n\mbox{ is even} \\ 3n+1, & \mbox{if }n\mbox{ is odd} \end{cases} $ |
-|  多行等式、同余式  | <pre lang="latex"><code lang="latex">\begin{align} <br />f(x) & = (m+n)^2 \\<br /> & = m^2+2mn+n^2 \\ <br />\end{align} </code></pre> | $ \begin{align} f(x) & = (m+n)^2 \\ & = m^2+2mn+n^2 \\ \end{align}  $ |
-|                    | <pre lang="latex"><code lang="latex">\begin{align} <br />3^{6n+3}+4^{6n+3} <br /> & \equiv (3^3)^{2n+1}+(4^3)^{2n+1}\\   <br />& \equiv 27^{2n+1}+64^{2n+1}\\ <br />  & \equiv 27^{2n+1}+(-27)^{2n+1}\\ <br /> & \equiv 27^{2n+1}-27^{2n+1}\\ <br />& \equiv 0 \pmod{91}\\ <br />\end{align}</code></pre> | $ \begin{align} 3^{6n+3}+4^{6n+3}  & \equiv (3^3)^{2n+1}+(4^3)^{2n+1}\\   & \equiv 27^{2n+1}+64^{2n+1}\\   & \equiv 27^{2n+1}+(-27)^{2n+1}\\  & \equiv 27^{2n+1}-27^{2n+1}\\ & \equiv 0 \pmod{91}\\ \end{align} $ |
-|                    | <pre lang="latex"><code lang="latex">\begin{alignat}{3} <br />f(x) & = (m-n)^2 \\ <br />f(x) & = (-m+n)^2 \\ <br />& = m^2-2mn+n^2 \\ <br />\end{alignat}</code></pre> | $ \begin{alignat}{3} f(x) & = (m-n)^2 \\ f(x) & = (-m+n)^2 \\ & = m^2-2mn+n^2 \\ \end{alignat}  $ |
-| 多行等式（左对齐） | <pre lang="latex"><code lang="latex">\begin{array}{lcl} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z  <br />\end{array}</code></pre> | $ \begin{array}{lcl} z        & = & a \\ f(x,y,z) & = & x + y + z  \end{array} $ |
-| 多行等式（右对齐） | <pre lang="latex"><code lang="latex">\begin{array}{lcr} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z     <br />\end{array}</code></pre> | $ \begin{array}{lcr} z        & = & a \\ f(x,y,z) & = & x + y + z     \end{array} $ |
+|        矩阵        | <pre><code class="language-latex">\begin{matrix}<br /> x & y \\ <br />z & v <br />\end{matrix}</code></pre> |        $ \begin{matrix} x & y \\ z & v \end{matrix} $        |
+|                    | <pre><code class="language-latex">\begin{vmatrix} <br />x & y \\ <br />z & v <br />\end{vmatrix}</code></pre> |       $ \begin{vmatrix} x & y \\ z & v \end{vmatrix} $       |
+|                    | <pre><code class="language-latex">\begin{Vmatrix} <br />x & y \\ <br />z & v <br />\end{Vmatrix}</code></pre> |       $ \begin{Vmatrix} x & y \\ z & v \end{Vmatrix} $       |
+|                    | <pre><code class="language-latex">\begin{bmatrix} <br />0      & \cdots & 0      \\ <br />\vdots & \ddots & \vdots \\ <br />0      & \cdots & 0 <br />\end{bmatrix}</code></pre> | $ \begin{bmatrix} 0      & \cdots & 0      \\ \vdots & \ddots & \vdots \\ 0      & \cdots & 0 \end{bmatrix} $ |
+|                    | <pre><code class="language-latex">\begin{Bmatrix}<br /> x & y \\ <br />z & v <br />\end{Bmatrix}</code></pre> |       $ \begin{Bmatrix} x & y \\ z & v \end{Bmatrix} $       |
+|                    | <pre><code class="language-latex">\begin{pmatrix} <br />x & y \\ <br />z & v <br />\end{pmatrix}</code></pre> |       $ \begin{pmatrix} x & y \\ z & v \end{pmatrix} $       |
+|                    | <pre><code class="language-latex">\bigl( \begin{smallmatrix}<br /> a&b\\ c&d <br />\end{smallmatrix} \bigr) </code></pre> | $ \bigl( \begin{smallmatrix} a&b\\ c&d \end{smallmatrix} \bigr)  $ |
+|      条件定义      | <pre><code class="language-latex">f(n) = <br />\begin{cases} <br /> n/2,  & \mbox{if }n\mbox{ is even} \\ <br />3n+1, & \mbox{if }n\mbox{ is odd} <br />\end{cases}</code></pre> | $ f(n) = \begin{cases}  n/2,  & \mbox{if }n\mbox{ is even} \\ 3n+1, & \mbox{if }n\mbox{ is odd} \end{cases} $ |
+|  多行等式、同余式  | <pre><code class="language-latex">\begin{align} <br />f(x) & = (m+n)^2 \\<br /> & = m^2+2mn+n^2 \\ <br />\end{align} </code></pre> | $ \begin{align} f(x) & = (m+n)^2 \\ & = m^2+2mn+n^2 \\ \end{align}  $ |
+|                    | <pre><code class="language-latex">\begin{align} <br />3^{6n+3}+4^{6n+3} <br /> & \equiv (3^3)^{2n+1}+(4^3)^{2n+1}\\   <br />& \equiv 27^{2n+1}+64^{2n+1}\\ <br />  & \equiv 27^{2n+1}+(-27)^{2n+1}\\ <br /> & \equiv 27^{2n+1}-27^{2n+1}\\ <br />& \equiv 0 \pmod{91}\\ <br />\end{align}</code></pre> | $ \begin{align} 3^{6n+3}+4^{6n+3}  & \equiv (3^3)^{2n+1}+(4^3)^{2n+1}\\   & \equiv 27^{2n+1}+64^{2n+1}\\   & \equiv 27^{2n+1}+(-27)^{2n+1}\\  & \equiv 27^{2n+1}-27^{2n+1}\\ & \equiv 0 \pmod{91}\\ \end{align} $ |
+|                    | <pre><code class="language-latex">\begin{alignat}{3} <br />f(x) & = (m-n)^2 \\ <br />f(x) & = (-m+n)^2 \\ <br />& = m^2-2mn+n^2 \\ <br />\end{alignat}</code></pre> | $ \begin{alignat}{3} f(x) & = (m-n)^2 \\ f(x) & = (-m+n)^2 \\ & = m^2-2mn+n^2 \\ \end{alignat}  $ |
+| 多行等式（左对齐） | <pre><code class="language-latex">\begin{array}{lcl} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z  <br />\end{array}</code></pre> | $ \begin{array}{lcl} z        & = & a \\ f(x,y,z) & = & x + y + z  \end{array} $ |
+| 多行等式（右对齐） | <pre><code class="language-latex">\begin{array}{lcr} <br />z        & = & a \\ <br />f(x,y,z) & = & x + y + z     <br />\end{array}</code></pre> | $ \begin{array}{lcr} z        & = & a \\ f(x,y,z) & = & x + y + z     \end{array} $ |
 |     长公式换行     | <code><br /><math>f(x) \,\!</math> <br /><math>= \sum_{n=0}^\infty a_n x^n </math> <br /><math>= a_0+a_1x+a_2x^2+\cdots</math><code> | $ <math>f(x) \,\!</math> <math>= \sum_{n=0}^\infty a_n x^n </math> <math>= a_0+a_1x+a_2x^2+\cdots</math>  $ |
-|       方程组       | <pre lang="latex"><code lang="latex">\begin{cases} <br />3x + 5y +  z \\ <br />7x - 2y + 4z \\ <br />-6x + 3y + 2z <br />\end{cases}</code></pre> | $ \begin{cases} 3x + 5y +  z \\ 7x - 2y + 4z \\ -6x + 3y + 2z \end{cases} $ |
-|        数组        | <pre lang="latex"><code lang="latex">\begin{array}{\|c\|c\|\|c\|} a & b & S \\ <br />\hline <br />0&0&1\\ <br />0&1&1\\ <br />1&0&1\\ <br />1&1&0\\ <br />\end{array} </code></pre> | $ \begin{array}{                                                                                                  | c | c |  | c | } a & b & S \\ \hline 0&0&1\\ 0&1&1\\ 1&0&1\\ 1&1&0\\ \end{array}  $ |
+|       方程组       | <pre><code class="language-latex">\begin{cases} <br />3x + 5y +  z \\ <br />7x - 2y + 4z \\ <br />-6x + 3y + 2z <br />\end{cases}</code></pre> | $ \begin{cases} 3x + 5y +  z \\ 7x - 2y + 4z \\ -6x + 3y + 2z \end{cases} $ |
+|        数组        | <pre><code class="language-latex">\begin{array}{\|c\|c\|\|c\|} a & b & S \\ <br />\hline <br />0&0&1\\ <br />0&1&1\\ <br />1&0&1\\ <br />1&1&0\\ <br />\end{array} </code></pre> | $ \begin{array}{                                                                                                  | c | c |  | c | } a & b & S \\ \hline 0&0&1\\ 0&1&1\\ 1&0&1\\ 1&1&0\\ \end{array}  $ |
 
 ### 字体
 
@@ -445,3 +446,6 @@ description: Latex公式参考手册
 >   $$
 >   x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{ {\color{Maroon}b^2-4ac}}}{2a}
 >   $$
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
