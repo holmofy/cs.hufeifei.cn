@@ -164,7 +164,7 @@ code.language-latex{
 
 |                                     特殊符号                                      |                                                                                     |
 | :-------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------- |
-|                 `\amalg \P \S \% \dagger \ddagger \ldots \cdots`                  | $ \amalg \P \S \% \dagger \ddagger \ldots \cdots $                                  |
+|                 `\amalg \P \S \% \dagger \ddagger \ldots \cdots`                  | $\amalg \P \S \% \dagger \ddagger \ldots \cdots$                                  |
 |                 `\smile \frown \wr \triangleleft \triangleright`                  | $ \smile \frown \wr \triangleleft \triangleright $                                  |
 | `\diamondsuit, \heartsuit, \clubsuit, \spadesuit, \Game, \flat, \natural, \sharp` | $ \diamondsuit, \heartsuit, \clubsuit, \spadesuit, \Game, \flat, \natural, \sharp $ |
 
@@ -251,7 +251,7 @@ code.language-latex{
 | 多行等式（左对齐） | <pre class="language-latex"><code class="language-latex">\begin{array}{lcl} <br />z        & = & a \\\\ <br />f(x,y,z) & = & x + y + z  <br />\end{array}</code></pre> | $ \begin{array}{lcl} z & = & a \newline f(x,y,z) & = & x + y + z \end{array} $ |
 | 多行等式（右对齐） | <pre class="language-latex"><code class="language-latex">\begin{array}{lcr} <br />z        & = & a \\\\ <br />f(x,y,z) & = & x + y + z <br />\end{array}</code></pre> | $ \begin{array}{lcr} z & = & a \newline f(x,y,z) & = & x + y + z \end{array} $ |
 |       方程组       | <pre class="language-latex"><code class="language-latex">\begin{cases} <br />3x + 5y +  z \\\\ <br />7x - 2y + 4z \\\\ <br />-6x + 3y + 2z <br />\end{cases}</code></pre> | $\begin{cases} 3x + 5y +  z \newline 7x - 2y + 4z \newline -6x + 3y + 2z \end{cases} $ |
-|        数组        | <pre class="language-latex"><code class="language-latex">\begin{array}{\|c\|c\|\|c\|} a & b & S \\\\ <br />\hline <br />0&0&1\\\\ <br />0&1&1\\\\ <br />1&0&1\\\\ <br />1&1&0\\\\ <br />\end{array} </code></pre> | $\begin{array}{\| c \| c \|\| c \|} a & b & S \newline \hline 0&0&1 \newline 0&1&1 \newline 1&0&1 \newline 1&1&0 \newline \end{array}$ |
+|        数组        | <pre class="language-latex"><code class="language-latex">\begin{array}{\|c\|c\|\|c\|} a & b & S \\\\ <br />\hline <br />0&0&1\\\\ <br />0&1&1\\\\ <br />1&0&1\\\\ <br />1&1&0\\\\ <br />\end{array} </code></pre> | $\begin{array}{\|c\|c\|\|c\|} a & b & S \newline \hline 0&0&1 \newline 0&1&1 \newline 1&0&1 \newline 1&1&0 \newline \end{array}$ |
 
 ### 字体
 
