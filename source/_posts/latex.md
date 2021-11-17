@@ -8,7 +8,6 @@ description: Latex公式参考手册
 
 ## get started
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/default.min.css">
 <style>
 .h3-section-list {
     columns: 1 !important;
@@ -450,8 +449,3 @@ code.language-latex{
 >   $$
 >   x_{\color{Maroon}1,2}=\frac{-b\pm\sqrt{ {\color{Maroon}b^2-4ac}}}{2a}
 >   $$
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
-<script>window.addEventListener("load",function(){
-    hljs.configure({ 'useBR': true });hljs.initHighlighting();hljs.highlightAll();
-});</script>
