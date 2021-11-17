@@ -372,9 +372,9 @@ code.language-latex{
 
 |      功能      |                            语法                            |                              显示                              |
 | :------------: | :--------------------------------------------------------: | :------------------------------------------------------------: |
-| 圆括号，小括号 |             \left**(** \frac{a}{b} \right**)**             |                $  \left( \frac{a}{b} \right) $                 |
-| 方括号，中括号 |             \left**[** \frac{a}{b} \right**]**             |                $  \left[ \frac{a}{b} \right] $                 |
-| 花括号，大括号 |           \left**\\{** \frac{a}{b} \right**\\}**           |                $\left\\{ \frac{a}{b} \right\\}$                |
+| 圆括号，小括号 |             \left **(** \frac{a}{b} \right **)**             |                $  \left( \frac{a}{b} \right) $                 |
+| 方括号，中括号 |             \left **[** \frac{a}{b} \right **]**             |                $  \left[ \frac{a}{b} \right] $                 |
+| 花括号，大括号 |           \left **\\{** \frac{a}{b} \right **\\}**           |                $\left\\{ \frac{a}{b} \right\\}$                |
 |     角括号     |      \left **\langle** \frac{a}{b} \right **\rangle**      |         $  \left \langle \frac{a}{b} \right \rangle $          |
 | 单竖线，绝对值 |           \left **\|** \frac{a}{b} \right **\|**           |               $  \left\| \frac{a}{b} \right\| $                |
 |  双竖线，范数  |           \left **\|** \frac{a}{b} \right **\|**           |              $  \left \| \frac{a}{b} \right \| $               |
@@ -392,7 +392,7 @@ code.language-latex{
 > - 可以使用 `\big, \Big, \bigg, \Bigg` 控制括号的大小，比如代码
 >
 > **\Bigg** ( **\bigg** [ **\Big** \{ **\big** \langle \left | \| \frac{a}{b} \| \right | **\big** \rangle **\Big** \} **\bigg** ] **\Bigg** )
->$$
+> $$
 > \Bigg ( \bigg [ \Big \\{ \big \langle \left | \| \frac{a}{b} \| \right | \big \rangle \Big \\} \bigg ] \Bigg )
 > $$
 
