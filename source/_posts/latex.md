@@ -17,8 +17,8 @@ description: Latex公式参考手册
     white-space: normal;
 }
 code.language-latex{
-    background-color: #eff0f1;
-    padding: 1px 5px;
+    background-color: #eff0f1 !important;
+    padding: 1px 5px !important;
 }
 </style>
 
@@ -452,4 +452,4 @@ code.language-latex{
 >   $$
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
+<script>hljs.configure({ 'useBR': true });hljs.highlightAll();</script>
