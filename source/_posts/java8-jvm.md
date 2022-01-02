@@ -1,8 +1,8 @@
 ---
-title: Regex
-categories: regex
-keywords: regex,正则表达式,参考手册
-description: 正则表达式参考手册
+title: java8-jvm参数
+categories: jvm
+keywords: java,jvm,参数调优,参考手册
+description: jvm8调优参考手册
 ---
 
 ## get started
