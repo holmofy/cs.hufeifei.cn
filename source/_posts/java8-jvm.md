@@ -31,8 +31,8 @@ java [options] -jar filename [args]
 ***[#ddd]> Non-Heap
 ****[#ddd]< Thread Stacks
 ****[#ddd]< NIO Direct Buffers
-****[#ddd]< MetaSpace
-****[#ddd]> Compressed Class Space
+****[#ddd]< Compressed Class Space
+****[#ddd]> MetaSpace
 ****[#ddd]> Code Cache
 ****[#ddd]> Other...
 **[#c33] Native
