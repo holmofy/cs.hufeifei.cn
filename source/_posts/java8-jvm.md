@@ -21,12 +21,12 @@ java [options] -jar filename [args]
 
 | 年轻代回收算法                             | 老年代回收算法                                     | GC启用参数                                                |
 | ----------------------------------- | ------------------------------------------- | ----------------------------------------------------- |
-| Serial(DefNew))                     | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseSerialGC`                                    |
-| Parallel scavenge(PSYoungGen)       | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseParallelGC`(默认)                              |
-| Parallel <br/>scavenge(PSYoungGen)) | Parallel Mark Sweep <br/>Compact(ParOldGen) | `-XX:+UseParallelOldGC`<br/>(随`-XX:+UseParallelGC`开启) |
-| Parallel(ParNew))                   | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseParNewGC`<br/>(随`-XX:+UseConcMarkSweepGC`开启) |
-| Serial(DefNew))                     | Concurrent Mark Sweep                       | `-XX:-UseParNewGC` <br/>`-XX:+UseConcMarkSweepGC`     |
-| Parallel(ParNew))                   | Concurrent Mark Sweep                       | `-XX:+UseParNewGC` <br/>`-XX:+UseConcMarkSweepGC`     |
+| Serial<br/>(DefNew))                | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseSerialGC`                                    |
+| Parallel scavenge<br/>(PSYoungGen)  | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseParallelGC`(默认)                              |
+| Parallel scavenge<br/>(PSYoungGen)) | Parallel Mark Sweep <br/>Compact(ParOldGen) | `-XX:+UseParallelOldGC`<br/>(随`-XX:+UseParallelGC`开启) |
+| Parallel<br/>(ParNew))              | Serial Mark Sweep <br/>Compact(PSOldGen)    | `-XX:+UseParNewGC`<br/>(随`-XX:+UseConcMarkSweepGC`开启) |
+| Serial<br/>(DefNew))                | Concurrent Mark Sweep                       | `-XX:-UseParNewGC` <br/>`-XX:+UseConcMarkSweepGC`     |
+| Parallel<br/>(ParNew))              | Concurrent Mark Sweep                       | `-XX:+UseParNewGC` <br/>`-XX:+UseConcMarkSweepGC`     |
 | G1(Garbage First)                   | G1(Garbage First)                           | `-XX:+UseG1GC`                                        |
 
 ### GC日志
