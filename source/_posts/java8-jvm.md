@@ -1,5 +1,5 @@
 ---
-title: java8-jvm参数
+title: java8-jvm
 categories: jvm
 keywords: java,jvm,参数调优,参考手册
 description: jvm8调优参考手册
@@ -134,17 +134,17 @@ java [options] -jar filename [args]
 
 ### GC并发线程控制
 
-| VM参数                             | 说明                                        |
-| -------------------------------- | ----------------------------------------- |
-| `-XX:ParallelGCThreads=threads`  | 设置STW的垃圾收集线程数                             |
-| `-XX:+ParallelRefProcEnabled`    | 开启并发reference processing                  |
-| `-XX:+UseGCOverheadLimit`        | OutOfMemoryError之前JVM在GC上使用的时间比例          |
-| `-XX:ConcGCThreads` = n          | 设置并行标记线程的数量Young space tenuring           |
-| `-XX:InitialTenuringThreshold=8` | 设置保有年龄阀值,就是一个对象多少age之后会被升级到old space      |
-| `-XX:MaxTenuringThreshold=15`    | 最大的保有年龄阈值                                 |
-| `-XX:PretenureSizeThreshold=2m`  | 超出该阈值，对象将会被直接分配到old space                 |
-| `-XX:+AlwaysTenure`              | 将young space中的survivor对象直接提升到old space    |
-| `-XX:+NeverTenure`               | 除非survivor space不能容纳该对象了，否则不会提升到old space |
+| VM参数                             | 说明                                             |
+| -------------------------------- | ---------------------------------------------- |
+| `-XX:ParallelGCThreads=threads`  | 设置STW的垃圾收集线程数                                  |
+| `-XX:+ParallelRefProcEnabled`    | 开启并发reference processing                       |
+| `-XX:+UseGCOverheadLimit`        | OutOfMemoryError之前JVM在GC上使用的时间比例               |
+| `-XX:ConcGCThreads` = n          | 设置并行标记线程的数量Young space tenuring                |
+| `-XX:InitialTenuringThreshold=8` | 设置保有年龄阀值,就是一个对象多少age之后会被升级到old space           |
+| `-XX:MaxTenuringThreshold=15`    | 最大的保有年龄阈值                                      |
+| `-XX:PretenureSizeThreshold=2m`  | 超出该阈值，对象将会被直接分配到old space                      |
+| `-XX:+AlwaysTenure`              | 将young space中的survivor对象直接提升到old space         |
+| `-XX:+NeverTenure`               | 除非survivor space不能容纳该对象了，<br/>否则不会提升到old space |
 
 ### CMS初始化参数
 
