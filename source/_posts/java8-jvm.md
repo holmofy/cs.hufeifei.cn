@@ -12,7 +12,7 @@ description: jvm8调优参考手册
 * https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
 * https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html
 
-```sh
+```bash
 java [options] classname [args]
 java [options] -jar filename [args]
 ```
