@@ -9,12 +9,35 @@ description: jvm8调优参考手册
 
 参考：
 
+* https://blog.hufeifei.cn/2018/12/Java/jvm-gc/
 * https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
 * https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html
 
 ```bash
 java [options] classname [args]
 java [options] -jar filename [args]
+```
+
+```plantuml
+@startwbs
+* java运行时内存
+**[#eee] JVM内存
+***[#abe]< Java堆
+****[#aae]< YoungGen
+*****[#bbe]< Eden
+*****[#bbe]> Survivor0
+*****[#bbe]> Survivor1
+****[#cce]> OldGen
+***[#ddd]> Non-Heap
+****[#ddd]< Thread Stacks
+****[#ddd]< NIO Direct Buffers
+****[#ddd]< MetaSpace
+****[#ddd]> Compressed Class Space
+****[#ddd]> Code Cache
+****[#ddd]> Other...
+**[#c33] Native
+***[#c44] native libraries
+@endwbs
 ```
 
 ### HotSpot JVM可用GC类型

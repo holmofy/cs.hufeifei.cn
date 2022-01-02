@@ -111,3 +111,25 @@ mathjax:
   normal_width: 0.6 # relative normal (monospace) width
   append_css: true # add CSS to pages rendered by MathJax
   every_page: false # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
+
+
+# https://github.com/miao1007/hexo-filter-plantuml
+# 添加plantuml的支持
+plantuml:
+  #  Local or PlantUMLServer.
+  render: "PlantUMLServer"
+  # The render server, you can also create your self-hosting sever
+  # self-hosting cmd: java -jar /usr/local/Cellar/plantuml/1.2021.5/libexec/plantuml.jar -picoweb
+  # server: http://localhost:8080/plantuml
+  server: "http://api.hufeifei.cn/plantuml"
+  # "inline": <svg>xxx<svg/>
+  # "inlineUrlEncode": <img src='data:image/svg+xml;> 
+  # "inlineBase64": <img src='data:image/svg+xml;base64> 
+  # "localLink": <img src="/assert/puml/xxxx.svg">
+  # "externalLink": <img src="http://www.plantuml.com/plantuml/svg/xxx">
+  link: "inline"
+
+  # common options: svg/png
+  outputFormat: "svg"
+  className: plantuml
+  appendCss: false
