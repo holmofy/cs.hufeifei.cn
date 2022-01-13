@@ -121,7 +121,7 @@ plantuml:
   # The render server, you can also create your self-hosting sever
   # self-hosting cmd: java -jar /usr/local/Cellar/plantuml/1.2021.5/libexec/plantuml.jar -picoweb
   # server: http://localhost:8080/plantuml
-  server: "http://tool.hufeifei.cn/plantuml"
+  server: "https://tool.hufeifei.cn/plantuml"
   # "inline": <svg>xxx<svg/>
   # "inlineUrlEncode": <img src='data:image/svg+xml;> 
   # "inlineBase64": <img src='data:image/svg+xml;base64> 
