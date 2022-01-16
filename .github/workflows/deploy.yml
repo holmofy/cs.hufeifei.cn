@@ -30,13 +30,13 @@ jobs:
       uses: kielabokkie/ssh-key-and-known-hosts-action@v1
       with:
         ssh-private-key: ${{ secrets.ID_RSA }}
-        ssh-host: cs.hufeifei.cn
+        ssh-host: ${{ github.event.repository.name }}
     - name: Hexo Deploy
       run: |
         echo "${{ secrets.ID_RSA }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-add ~/.ssh/id_rsa
-        ssh-keyscan -t rsa cs.hufeifei.cn >> ~/.ssh/known_hosts
+        ssh-keyscan -t rsa ${{ github.event.repository.name }} >> ~/.ssh/known_hosts
         git config --global user.email "hff1996723@gmail.com"
         git config --global user.name "github/holmofy"
         hexo clean && hexo g && hexo d
