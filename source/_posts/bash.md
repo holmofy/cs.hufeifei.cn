@@ -1,5 +1,5 @@
 ---
-title: bash
+title: Bash
 categories: cli
 keywords: bash
 description: Bash速查表
@@ -566,17 +566,17 @@ done
 
 ### 文本处理 - cut
 
-| 命令                                   | 功能                                 |
-| -------------------------------------- | ------------------------------------ |
-| `cut -c 1-16`                          | 截取每行头16个字符                   |
-| `cut -c 1-16 file`                     | 截取指定文件中每行头 16个字符        |
-| `cut -c3-`                             | 截取每行从第三个字符开始到行末的内容 |
-| `cut -d':' -f5`                        | 截取用冒号分隔的第五列内容           |
-| `cut -d';' -f2,10`                     | 截取用分号分隔的第二和第十列内容     |
-| `cut -d' ' -f3-7`                      | 截取空格分隔的三到七列               |
-| `echo "hello" \| cut -c1-3`             | 显示 hel                             |
-| `echo "hello sir" \| cut -d' ' -f2`     | 显示 sir                             |
-| `ps | tr -s " " \| cut -d " " -f 2,3,4` | cut 搭配 tr 压缩字符                 |
+| 命令                                     | 功能                                 |
+| ---------------------------------------- | ------------------------------------ |
+| `cut -c 1-16`                            | 截取每行头16个字符                   |
+| `cut -c 1-16 file`                       | 截取指定文件中每行头 16个字符        |
+| `cut -c3-`                               | 截取每行从第三个字符开始到行末的内容 |
+| `cut -d':' -f5`                          | 截取用冒号分隔的第五列内容           |
+| `cut -d';' -f2,10`                       | 截取用分号分隔的第二和第十列内容     |
+| `cut -d' ' -f3-7`                        | 截取空格分隔的三到七列               |
+| `echo "hello" \| cut -c1-3`              | 显示 hel                             |
+| `echo "hello sir" \| cut -d' ' -f2`      | 显示 sir                             |
+| `ps \| tr -s " " \| cut -d " " -f 2,3,4` | cut 搭配 tr 压缩字符                 |
 
 ### 文本处理 - awk / sed
 
@@ -688,13 +688,13 @@ done
 | `man ascii`                | 显示 ascii 表                            |
 | `getconf LONG_BIT`         | 查看系统是 32 位还是 64 位               |
 | `bind -P`                  | 列出所有 bash 的快捷键                   |
-| `mount \| column -t`        | 漂亮的列出当前加载的文件系统             |
+| `mount \| column -t`       | 漂亮的列出当前加载的文件系统             |
 | `curl ip.cn`               | 取得外网 ip 地址和服务商信息             |
 | `disown -a && exit`        | 关闭所有后台任务并退出                   |
 | `cat /etc/issue`           | 查看 Linux 发行版信息                    |
 | `lsof -i port:80`          | 哪个程序在使用 80 端口？                 |
 | `showkey -a`               | 取得按键的 ASCII 码                      |
-| `svn diff \| view -`        | 使用 Vim 来显示带色彩的 diff 输出        |
+| `svn diff \| view -`       | 使用 Vim 来显示带色彩的 diff 输出        |
 | `mv filename.{old,new}`    | 快速文件改名                             |
 | `time read`                | 使用 CTRL-D 停止，最简单的计时功能       |
 | `cp file.txt{,.bak}`       | 快速备份文件                             |
