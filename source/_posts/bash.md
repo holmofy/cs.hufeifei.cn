@@ -164,7 +164,7 @@ References:
 | `ps axjf`                 | 列出进程树                                         |
 | `ps xjf -u {user}`        | 列出某用户的进程树                                 |
 | `ps -eo pid,user,command` | 按用户指定的格式查看进程                           |
-| `ps aux| grep httpd`      | 查看名为 httpd 的所有进程                          |
+| `ps aux \| grep httpd`    | 查看名为 httpd 的所有进程                          |
 | `ps --ppid {pid}`         | 查看父进程为 pid 的所有进程                        |
 | `pstree`                  | 树形列出所有进程，pstree 默认一般不带，需安装      |
 | `pstree {user}`           | 进程树列出某用户的进程                             |
@@ -189,7 +189,7 @@ References:
 | `trap - sig1 sig2`        | 恢复默认信号处理行为                               |
 | `nohup {command}`         | 长期运行某程序，在你退出登陆都保持它运行           |
 | `nohup {command} &`       | 在后台长期运行某程序                               |
-| `disown {PID | JID}`      | 将进程从后台任务列表（jobs）移除                   |
+| `disown {PID \| JID}`     | 将进程从后台任务列表（jobs）移除                   |
 | `wait`                    | 等待所有后台进程任务结束                           |
 
 ### 常用命令：SSH / 系统信息 / 网络
@@ -254,15 +254,15 @@ References:
 | `echo $?`               | 查看最近一条命令的返回码         |
 | `export VARNAME=value`  | 设置环境变量（将会影响到子进程） |
 
-| 命令                                             | 功能       |
-| ------------------------------------------------ | ---------- |
-| array[0]=valA <br>array[1]=valB<br>array[2]=valC | 定义数组   |
-| `array=([0]=valA [1]=valB [2]=valC)`             | 另一种方式 |
-| `array=(valA valB valC)`                         | 另一种方式 |
+| 命令                                                          | 功能       |
+| ------------------------------------------------------------- | ---------- |
+| <code>array[0]=valA <br>array[1]=valB<br>array[2]=valC</code> | 定义数组   |
+| `array=([0]=valA [1]=valB [2]=valC)`                          | 另一种方式 |
+| `array=(valA valB valC)`                                      | 另一种方式 |
 
-| 命令           | 功能                     |
-| -------------- | ------------------------ |
-| `${array[i]}`  | 取得数组中的元素         |
+| 命令            | 功能                     |
+| --------------- | ------------------------ |
+| `${array[i]}`   | 取得数组中的元素         |
 | `${\#array[@]}` | 取得数组的长度           |
 | `${\#array[i]}` | 取得数组中某个变量的长度 |
 
@@ -289,7 +289,7 @@ References:
 | `${variable%%pattern}`     | 如果变量尾部匹配 pattern，则删除最大匹配部分返回剩下的 |
 | `${variable/pattern/str}`  | 将变量中第一个匹配 pattern 的替换成 str，并返回        |
 | `${variable//pattern/str}` | 将变量中所有匹配 pattern 的地方替换成 str 并返回       |
-| `${\#varname}`              | 返回字符串长度                                         |
+| `${\#varname}`             | 返回字符串长度                                         |
 | `*(patternlist)`           | 零次或者多次匹配                                       |
 | `+(patternlist)`           | 一次或者多次匹配                                       |
 | `?(patternlist)`           | 零次或者一次匹配                                       |
@@ -360,14 +360,14 @@ function myfunc() {
 
 ### 条件判断（兼容 posix sh 的条件判断）：man test
 
-| 逻辑                       | 功能                                               |
-| -------------------------- | -------------------------------------------------- |
-| `statement1 && statement2` | and 操作符                                         |
-| `statement1 || statement2` | or 操作符                                          |
-| `exp1 -a exp2`             | exp1 和 exp2 同时为真时返回真（POSIX XSI扩展）     |
-| `exp1 -o exp2`             | exp1 和 exp2 有一个为真就返回真（POSIX XSI扩展）   |
-| `( expression )`           | 如果 expression 为真时返回真，输入注意括号前反斜杆 |
-| `! expression`             | 如果 expression 为假那返回真                       |
+| 逻辑                         | 功能                                               |
+| ---------------------------- | -------------------------------------------------- |
+| `statement1 && statement2`   | and 操作符                                         |
+| `statement1 \|\| statement2` | or 操作符                                          |
+| `exp1 -a exp2`               | exp1 和 exp2 同时为真时返回真（POSIX XSI扩展）     |
+| `exp1 -o exp2`               | exp1 和 exp2 有一个为真就返回真（POSIX XSI扩展）   |
+| `( expression )`             | 如果 expression 为真时返回真，输入注意括号前反斜杆 |
+| `! expression`               | 如果 expression 为假那返回真                       |
 
 | 字符串比较     | 功能                                               |
 | -------------- | -------------------------------------------------- |
@@ -543,12 +543,12 @@ done
 
 | 命令                   | 功能                                         |
 | ---------------------- | -------------------------------------------- |
-| `cmd1 | cmd2`          | 管道，cmd1 的标准输出接到 cmd2 的标准输入    |
+| `cmd1 \| cmd2`         | 管道，cmd1 的标准输出接到 cmd2 的标准输入    |
 | `< file`               | 将文件内容重定向为命令的标准输入             |
 | `> file`               | 将命令的标准输出重定向到文件，会覆盖文件     |
 | `>> file`              | 将命令的标准输出重定向到文件，追加不覆盖     |
-| `>| file`              | 强制输出到文件，即便设置过：set -o noclobber |
-| `n>| file`             | 强制将文件描述符 n的输出重定向到文件         |
+| `>\| file`             | 强制输出到文件，即便设置过：set -o noclobber |
+| `n>\| file`            | 强制将文件描述符 n的输出重定向到文件         |
 | `<> file`              | 同时使用该文件作为标准输入和标准输出         |
 | `n<> file`             | 同时使用文件作为文件描述符 n 的输出和输入    |
 | `n> file`              | 重定向文件描述符 n 的输出到文件              |
@@ -574,9 +574,9 @@ done
 | `cut -d':' -f5`                        | 截取用冒号分隔的第五列内容           |
 | `cut -d';' -f2,10`                     | 截取用分号分隔的第二和第十列内容     |
 | `cut -d' ' -f3-7`                      | 截取空格分隔的三到七列               |
-| `echo "hello" | cut -c1-3`             | 显示 hel                             |
-| `echo "hello sir" | cut -d' ' -f2`     | 显示 sir                             |
-| `ps | tr -s " " | cut -d " " -f 2,3,4` | cut 搭配 tr 压缩字符                 |
+| `echo "hello" \| cut -c1-3`             | 显示 hel                             |
+| `echo "hello sir" \| cut -d' ' -f2`     | 显示 sir                             |
+| `ps | tr -s " " \| cut -d " " -f 2,3,4` | cut 搭配 tr 压缩字符                 |
 
 ### 文本处理 - awk / sed
 
@@ -694,7 +694,7 @@ done
 | `cat /etc/issue`           | 查看 Linux 发行版信息                    |
 | `lsof -i port:80`          | 哪个程序在使用 80 端口？                 |
 | `showkey -a`               | 取得按键的 ASCII 码                      |
-| `svn diff | view -`        | 使用 Vim 来显示带色彩的 diff 输出        |
+| `svn diff \| view -`        | 使用 Vim 来显示带色彩的 diff 输出        |
 | `mv filename.{old,new}`    | 快速文件改名                             |
 | `time read`                | 使用 CTRL-D 停止，最简单的计时功能       |
 | `cp file.txt{,.bak}`       | 快速备份文件                             |
