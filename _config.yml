@@ -100,8 +100,8 @@ theme: cheatsheets
 ## 这里使用git部署网站
 deploy:
   type: git
-  repo: git@cs.hufeifei.cn:repo/cs.hufeifei.cn.git
-  branch: master
+  repo: git@github.com:holmofy/cs.hufeifei.cn.git
+  branch: gh-page
   message: "hexo deployment: {{ now('YYYY-MM-DD HH:mm:ss') }}"
 
 # 配置Math.js
