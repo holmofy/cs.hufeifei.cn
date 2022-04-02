@@ -26,8 +26,17 @@ jobs:
         cache: 'npm'
     - run: npm install -g hexo-cli
     - run: npm install
+    - name: Install ssh-key
+      uses: kielabokkie/ssh-key-and-known-hosts-action@v1
+      with:
+        ssh-private-key: ${{ secrets.ID_RSA }}
+        ssh-host: github.com
     - name: Hexo Deploy
       run: |
+        echo "${{ secrets.ID_RSA }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-add ~/.ssh/id_rsa
+        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
         git config --global user.email "hff1996723@gmail.com"
         git config --global user.name "github/holmofy"
         hexo clean && hexo g && hexo d
