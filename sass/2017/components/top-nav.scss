@@ -1,0 +1,17 @@
+.top-nav>.container {
+  & {
+    display: flex;
+    align-items: center;
+  }
+
+  &>.left {
+    padding: 8px;
+  }
+
+  &>.actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 16px;
+  }
+}

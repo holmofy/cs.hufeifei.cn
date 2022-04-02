@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202020"/>
+  
+    <meta name="keywords" content="bash" />
+  
+
+    
+    <meta name="description" content="Bash速查表" />
+  
+  
+  
+
+
+  
+  <title>Bash | Cheat Sheets</title>
+  
+    <link rel="icon" href="/img/favicon.min.webp">
+  
+  
+<link rel="stylesheet" href="/css/bundle.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-H58NSPXYPF');
+  </script>
+  <script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "9nz5jukf69");
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <nav class='top-nav' data-js-no-preview role='navigation'>
+  <div class='container'>
+    <div class='left'>
+      
+      <a class='home back-button' href='/'></a>
+      
+    </div>
+
+    <div class='actions'>
+      <ul class='page-actions'>
+        <li class='link github -button hint--bottom' data-hint='Contribute to CheatSheets'>
+          <a target="_blank" rel="noopener" href='https://github.com/holmofy/cs.hufeifei.cn'>
+            <span class='text -visible'>Contribute to CheatSheets</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-bash" class="article article-type-post" itemscope
+  itemprop="blogPost">
+  <div class='body-area'>
+    <header class='main-heading -center' role='banner'>
+      <h1 class='h1'> Bash <em></em></h1>
+    </header>
+
+    <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
+      <h2 id="get-started"><a href="#get-started" class="headerlink" title="get started"></a>get started</h2><p>References: </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Idnan/bash-guide">https://github.com/Idnan/bash-guide</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.linuxstall.com/linux-command-line-tips-that-every-linux-user-should-know/">http://www.linuxstall.com/linux-command-line-tips-that-every-linux-user-should-know/</a></li>
+<li><a target="_blank" rel="noopener" href="https://ss64.com/bash/syntax-keyboard.html">https://ss64.com/bash/syntax-keyboard.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.bash-hackers.org/commands/classictest">http://wiki.bash-hackers.org/commands/classictest</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/library/l-bash-test/index.html">https://www.ibm.com/developerworks/library/l-bash-test/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/bash-loop-over-file/">https://www.cyberciti.biz/faq/bash-loop-over-file/</a></li>
+<li><a target="_blank" rel="noopener" href="https://linuxconfig.org/bash-scripting-tutorial">https://linuxconfig.org/bash-scripting-tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh">https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh</a></li>
+<li><a target="_blank" rel="noopener" href="https://devhints.io/bash">https://devhints.io/bash</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jlevy/the-art-of-command-line">https://github.com/jlevy/the-art-of-command-line</a></li>
+<li><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/68541">https://yq.aliyun.com/articles/68541</a></li>
+</ul>
+<h3 id="常用快捷键（默认使用-Emacs-键位）"><a href="#常用快捷键（默认使用-Emacs-键位）" class="headerlink" title="常用快捷键（默认使用 Emacs 键位）"></a>常用快捷键（默认使用 Emacs 键位）</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CTRL+A</code></td>
+<td>移动到行首，同 <Home></td>
+</tr>
+<tr>
+<td><code>CTRL+B</code></td>
+<td>向后移动，同 <Left></td>
+</tr>
+<tr>
+<td><code>CTRL+C</code></td>
+<td>结束当前命令</td>
+</tr>
+<tr>
+<td><code>CTRL+D</code></td>
+<td>删除光标前的字符，同 <Delete> ，或者没有内容时，退出会话</td>
+</tr>
+<tr>
+<td><code>CTRL+E</code></td>
+<td>移动到行末，同 <End></td>
+</tr>
+<tr>
+<td><code>CTRL+F</code></td>
+<td>向前移动，同 <Right></td>
+</tr>
+<tr>
+<td><code>CTRL+G</code></td>
+<td>退出当前编辑（比如正在 CTRL+R 搜索历史时）</td>
+</tr>
+<tr>
+<td><code>CTRL+H</code></td>
+<td>删除光标左边的字符，同 <Backspace></td>
+</tr>
+<tr>
+<td><code>CTRL+K</code></td>
+<td>删除光标位置到行末的内容</td>
+</tr>
+<tr>
+<td><code>CTRL+L</code></td>
+<td>清屏并重新显示</td>
+</tr>
+<tr>
+<td><code>CTRL+N</code></td>
+<td>移动到命令历史的下一行，同 <Down></td>
+</tr>
+<tr>
+<td><code>CTRL+O</code></td>
+<td>类似回车，但是会显示下一行历史</td>
+</tr>
+<tr>
+<td><code>CTRL+P</code></td>
+<td>移动到命令历史的上一行，同 <Up></td>
+</tr>
+<tr>
+<td><code>CTRL+R</code></td>
+<td>历史命令反向搜索，使用 CTRL+G 退出搜索</td>
+</tr>
+<tr>
+<td><code>CTRL+S</code></td>
+<td>历史命令正向搜索，使用 CTRL+G 退出搜索</td>
+</tr>
+<tr>
+<td><code>CTRL+T</code></td>
+<td>交换前后两个字符</td>
+</tr>
+<tr>
+<td><code>CTRL+U</code></td>
+<td>删除字符到行首</td>
+</tr>
+<tr>
+<td><code>CTRL+V</code></td>
+<td>输入字符字面量，先按 CTRL+V 再按任意键</td>
+</tr>
+<tr>
+<td><code>CTRL+W</code></td>
+<td>删除光标左边的一个单词</td>
+</tr>
+<tr>
+<td><code>CTRL+X</code></td>
+<td>列出可能的补全</td>
+</tr>
+<tr>
+<td><code>CTRL+Y</code></td>
+<td>粘贴前面 CTRL+u/k/w 删除过的内容</td>
+</tr>
+<tr>
+<td><code>CTRL+Z</code></td>
+<td>暂停前台进程返回 bash，需要时可用 fg 将其切换回前台</td>
+</tr>
+<tr>
+<td><code>CTRL+_</code></td>
+<td>撤销（undo），有的终端将 CTRL+_ 映射为 CTRL+/ 或 CTRL+7</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ALT+b</code></td>
+<td>向后（左边）移动一个单词</td>
+</tr>
+<tr>
+<td><code>ALT+d</code></td>
+<td>删除光标后（右边）一个单词</td>
+</tr>
+<tr>
+<td><code>ALT+f</code></td>
+<td>向前（右边）移动一个单词</td>
+</tr>
+<tr>
+<td><code>ALT+t</code></td>
+<td>交换字符</td>
+</tr>
+<tr>
+<td><code>ALT+BACKSPACE</code></td>
+<td>删除光标前面一个单词，类似 CTRL+W，但不影响剪贴板</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CTRL+X CTRL+X</code></td>
+<td>连续按两次 CTRL+X，光标在当前位置和行首来回跳转</td>
+</tr>
+<tr>
+<td><code>CTRL+X CTRL+E</code></td>
+<td>用你指定的编辑器，编辑当前命令</td>
+</tr>
+</tbody></table>
+<h3 id="BASH-基本操作"><a href="#BASH-基本操作" class="headerlink" title="BASH 基本操作"></a>BASH 基本操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>exit</code></td>
+<td>退出当前登陆</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>显示环境变量</td>
+</tr>
+<tr>
+<td><code>echo $SHELL</code></td>
+<td>显示你在使用什么 SHELL</td>
+</tr>
+<tr>
+<td><code>bash</code></td>
+<td>使用 bash，用 exit 返回</td>
+</tr>
+<tr>
+<td><code>which bash</code></td>
+<td>搜索 $PATH，查找哪个程序对应命令 bash</td>
+</tr>
+<tr>
+<td><code>whereis bash</code></td>
+<td>搜索可执行，头文件和帮助信息的位置，使用系统内建数据库</td>
+</tr>
+<tr>
+<td><code>whatis bash</code></td>
+<td>查看某个命令的解释，一句话告诉你这是干什么的</td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>清初屏幕内容</td>
+</tr>
+<tr>
+<td><code>reset</code></td>
+<td>重置终端（当你不小心 cat 了一个二进制，终端状态乱掉时使用）</td>
+</tr>
+</tbody></table>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cd</code></td>
+<td>返回自己 $HOME 目录</td>
+</tr>
+<tr>
+<td><code>cd &#123;dirname&#125;</code></td>
+<td>进入目录</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>显示当前所在目录</td>
+</tr>
+<tr>
+<td><code>mkdir &#123;dirname&#125;</code></td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td><code>mkdir -p &#123;dirname&#125;</code></td>
+<td>递归创建目录</td>
+</tr>
+<tr>
+<td><code>pushd &#123;dirname&#125;</code></td>
+<td>目录压栈并进入新目录</td>
+</tr>
+<tr>
+<td><code>popd</code></td>
+<td>弹出并进入栈顶的目录</td>
+</tr>
+<tr>
+<td><code>dirs -v</code></td>
+<td>列出当前目录栈</td>
+</tr>
+<tr>
+<td><code>cd -</code></td>
+<td>回到之前的目录</td>
+</tr>
+<tr>
+<td><code>cd -&#123;N&#125;</code></td>
+<td>切换到目录栈中的第 N个目录，比如 cd -2 将切换到第二个</td>
+</tr>
+</tbody></table>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ls</code></td>
+<td>显示当前目录内容，后面可接目录名：ls {dir} 显示指定目录</td>
+</tr>
+<tr>
+<td><code>ls -l</code></td>
+<td>列表方式显示目录内容，包括文件日期，大小，权限等信息</td>
+</tr>
+<tr>
+<td><code>ls -1</code></td>
+<td>列表方式显示目录内容，只显示文件名称，减号后面是数字 1</td>
+</tr>
+<tr>
+<td><code>ls -a</code></td>
+<td>显示所有文件和目录，包括隐藏文件（.开头的文件/目录名）</td>
+</tr>
+<tr>
+<td><code>ln -s &#123;fn&#125; &#123;link&#125;</code></td>
+<td>给指定文件创建一个软链接</td>
+</tr>
+<tr>
+<td><code>cp &#123;src&#125; &#123;dest&#125;</code></td>
+<td>拷贝文件，cp -r dir1 dir2 可以递归拷贝（目录）</td>
+</tr>
+<tr>
+<td><code>rm &#123;fn&#125;</code></td>
+<td>删除文件，rm -r 递归删除目录，rm -f 强制删除</td>
+</tr>
+<tr>
+<td><code>mv &#123;src&#125; &#123;dest&#125;</code></td>
+<td>移动文件，如果 dest 是目录，则移动，是文件名则覆盖</td>
+</tr>
+<tr>
+<td><code>touch &#123;fn&#125;</code></td>
+<td>创建或者更新一下制定文件</td>
+</tr>
+<tr>
+<td><code>cat &#123;fn&#125;</code></td>
+<td>输出文件原始内容</td>
+</tr>
+<tr>
+<td><code>any_cmd &gt; &#123;fn&#125;</code></td>
+<td>执行任意命令并将标准输出重定向到指定文件</td>
+</tr>
+<tr>
+<td><code>more &#123;fn&#125;</code></td>
+<td>逐屏显示某文件内容，空格翻页，q 退出</td>
+</tr>
+<tr>
+<td><code>less &#123;fn&#125;</code></td>
+<td>更高级点的 more，更多操作，q 退出</td>
+</tr>
+<tr>
+<td><code>head &#123;fn&#125;</code></td>
+<td>显示文件头部数行，可用 head -3 abc.txt 显示头三行</td>
+</tr>
+<tr>
+<td><code>tail &#123;fn&#125;</code></td>
+<td>显示文件尾部数行，可用 tail -3 abc.txt 显示尾部三行</td>
+</tr>
+<tr>
+<td><code>tail -f &#123;fn&#125;</code></td>
+<td>持续显示文件尾部数据，可用于监控日志</td>
+</tr>
+<tr>
+<td><code>nano &#123;fn&#125;</code></td>
+<td>使用 nano 编辑器编辑文件</td>
+</tr>
+<tr>
+<td><code>vim &#123;fn&#125;</code></td>
+<td>使用 vim 编辑文件</td>
+</tr>
+<tr>
+<td><code>diff &#123;f1&#125; &#123;f2&#125;</code></td>
+<td>比较两个文件的内容</td>
+</tr>
+<tr>
+<td><code>wc &#123;fn&#125;</code></td>
+<td>统计文件有多少行，多少个单词</td>
+</tr>
+<tr>
+<td><code>chmod 644 &#123;fn&#125;</code></td>
+<td>修改文件权限为 644，可以接 -R 对目录循环改权限</td>
+</tr>
+<tr>
+<td><code>chgrp group &#123;fn&#125;</code></td>
+<td>修改文件所属的用户组</td>
+</tr>
+<tr>
+<td><code>chown user1 &#123;fn&#125;</code></td>
+<td>修改文件所有人为 user1, chown user1:group1 fn 可以修改组</td>
+</tr>
+<tr>
+<td><code>file &#123;fn&#125;</code></td>
+<td>检测文件的类型和编码</td>
+</tr>
+<tr>
+<td><code>basename &#123;fn&#125;</code></td>
+<td>查看文件的名字（不包括路径）</td>
+</tr>
+<tr>
+<td><code>dirname &#123;fn&#125;</code></td>
+<td>查看文件的路径（不包括名字）</td>
+</tr>
+<tr>
+<td><code>grep &#123;pat&#125; &#123;fn&#125;</code></td>
+<td>在文件中查找出现过 pat 的内容</td>
+</tr>
+<tr>
+<td><code>grep -r &#123;pat&#125; .</code></td>
+<td>在当前目录下递归查找所有出现过 pat 的文件内容</td>
+</tr>
+<tr>
+<td><code>stat &#123;fn&#125;</code></td>
+<td>显示文件的详细信息</td>
+</tr>
+</tbody></table>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>whoami</code></td>
+<td>显示我的用户名</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>显示已登陆用户信息，w / who / users 内容略有不同</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>显示已登陆用户信息，w / who / users 内容略有不同</td>
+</tr>
+<tr>
+<td><code>users</code></td>
+<td>显示已登陆用户信息，w / who / users 内容略有不同</td>
+</tr>
+<tr>
+<td><code>passwd</code></td>
+<td>修改密码，passwd {user} 可以用于 root 修改别人密码</td>
+</tr>
+<tr>
+<td><code>finger &#123;user&#125;</code></td>
+<td>显示某用户信息，包括 id, 名字, 登陆状态等</td>
+</tr>
+<tr>
+<td><code>adduser &#123;user&#125;</code></td>
+<td>添加用户</td>
+</tr>
+<tr>
+<td><code>deluser &#123;user&#125;</code></td>
+<td>删除用户</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>查看谁在线</td>
+</tr>
+<tr>
+<td><code>su</code></td>
+<td>切换到 root 用户</td>
+</tr>
+<tr>
+<td><code>su -</code></td>
+<td>切换到 root 用户并登陆（执行登陆脚本）</td>
+</tr>
+<tr>
+<td><code>su &#123;user&#125;</code></td>
+<td>切换到某用户</td>
+</tr>
+<tr>
+<td><code>su -&#123;user&#125;</code></td>
+<td>切换到某用户并登陆（执行登陆脚本）</td>
+</tr>
+<tr>
+<td><code>id &#123;user&#125;</code></td>
+<td>查看用户的 uid，gid 以及所属其他用户组</td>
+</tr>
+<tr>
+<td><code>id -u &#123;user&#125;</code></td>
+<td>打印用户 uid</td>
+</tr>
+<tr>
+<td><code>id -g &#123;user&#125;</code></td>
+<td>打印用户 gid</td>
+</tr>
+<tr>
+<td><code>write &#123;user&#125;</code></td>
+<td>向某用户发送一句消息</td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td>显示最近用户登陆列表</td>
+</tr>
+<tr>
+<td><code>last &#123;user&#125;</code></td>
+<td>显示登陆记录</td>
+</tr>
+<tr>
+<td><code>lastb</code></td>
+<td>显示失败登陆记录</td>
+</tr>
+<tr>
+<td><code>lastlog</code></td>
+<td>显示所有用户的最近登陆记录</td>
+</tr>
+<tr>
+<td><code>sudo &#123;command&#125;</code></td>
+<td>以 root 权限执行某命令</td>
+</tr>
+</tbody></table>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ps</code></td>
+<td>查看当前会话进程</td>
+</tr>
+<tr>
+<td><code>ps ax</code></td>
+<td>查看所有进程，类似 ps -e</td>
+</tr>
+<tr>
+<td><code>ps aux</code></td>
+<td>查看所有进程详细信息，类似 ps -ef</td>
+</tr>
+<tr>
+<td><code>ps auxww</code></td>
+<td>查看所有进程，并且显示进程的完整启动命令</td>
+</tr>
+<tr>
+<td><code>ps -u &#123;user&#125;</code></td>
+<td>查看某用户进程</td>
+</tr>
+<tr>
+<td><code>ps axjf</code></td>
+<td>列出进程树</td>
+</tr>
+<tr>
+<td><code>ps xjf -u &#123;user&#125;</code></td>
+<td>列出某用户的进程树</td>
+</tr>
+<tr>
+<td><code>ps -eo pid,user,command</code></td>
+<td>按用户指定的格式查看进程</td>
+</tr>
+<tr>
+<td><code>ps aux | grep httpd</code></td>
+<td>查看名为 httpd 的所有进程</td>
+</tr>
+<tr>
+<td><code>ps --ppid &#123;pid&#125;</code></td>
+<td>查看父进程为 pid 的所有进程</td>
+</tr>
+<tr>
+<td><code>pstree</code></td>
+<td>树形列出所有进程，pstree 默认一般不带，需安装</td>
+</tr>
+<tr>
+<td><code>pstree &#123;user&#125;</code></td>
+<td>进程树列出某用户的进程</td>
+</tr>
+<tr>
+<td><code>pstree -u</code></td>
+<td>树形列出所有进程以及所属用户</td>
+</tr>
+<tr>
+<td><code>pgrep &#123;procname&#125;</code></td>
+<td>搜索名字匹配的进程的 pid，比如 pgrep apache2</td>
+</tr>
+<tr>
+<td><code>kill &#123;pid&#125;</code></td>
+<td>结束进程</td>
+</tr>
+<tr>
+<td><code>kill -9 &#123;pid&#125;</code></td>
+<td>强制结束进程，9/SIGKILL 是强制不可捕获结束信号</td>
+</tr>
+<tr>
+<td><code>kill -KILL &#123;pid&#125;</code></td>
+<td>强制执行进程，kill -9 的另外一种写法</td>
+</tr>
+<tr>
+<td><code>kill -l</code></td>
+<td>查看所有信号</td>
+</tr>
+<tr>
+<td><code>kill -l TERM</code></td>
+<td>查看 TERM 信号的编号</td>
+</tr>
+<tr>
+<td><code>killall &#123;procname&#125;</code></td>
+<td>按名称结束所有进程</td>
+</tr>
+<tr>
+<td><code>pkill &#123;procname&#125;</code></td>
+<td>按名称结束进程，除名称外还可以有其他参数</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>查看最活跃的进程</td>
+</tr>
+<tr>
+<td><code>top -u &#123;user&#125;</code></td>
+<td>查看某用户最活跃的进程</td>
+</tr>
+<tr>
+<td><code>any_command &amp;</code></td>
+<td>在后台运行某命令，也可用 CTRL+Z 将当前进程挂到后台</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>查看所有后台进程（jobs）</td>
+</tr>
+<tr>
+<td><code>bg</code></td>
+<td>查看后台进程，并切换过去</td>
+</tr>
+<tr>
+<td><code>fg</code></td>
+<td>切换后台进程到前台</td>
+</tr>
+<tr>
+<td><code>fg &#123;job&#125;</code></td>
+<td>切换特定后台进程到前台</td>
+</tr>
+<tr>
+<td><code>trap cmd sig1 sig2</code></td>
+<td>在脚本中设置信号处理命令</td>
+</tr>
+<tr>
+<td><code>trap &quot;&quot; sig1 sig2</code></td>
+<td>在脚本中屏蔽某信号</td>
+</tr>
+<tr>
+<td><code>trap - sig1 sig2</code></td>
+<td>恢复默认信号处理行为</td>
+</tr>
+<tr>
+<td><code>nohup &#123;command&#125;</code></td>
+<td>长期运行某程序，在你退出登陆都保持它运行</td>
+</tr>
+<tr>
+<td><code>nohup &#123;command&#125; &amp;</code></td>
+<td>在后台长期运行某程序</td>
+</tr>
+<tr>
+<td><code>disown &#123;PID | JID&#125;</code></td>
+<td>将进程从后台任务列表（jobs）移除</td>
+</tr>
+<tr>
+<td><code>wait</code></td>
+<td>等待所有后台进程任务结束</td>
+</tr>
+</tbody></table>
+<h3 id="常用命令：SSH-系统信息-网络"><a href="#常用命令：SSH-系统信息-网络" class="headerlink" title="常用命令：SSH / 系统信息 / 网络"></a>常用命令：SSH / 系统信息 / 网络</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ssh user@host</code></td>
+<td>以用户 user 登陆到远程主机 host</td>
+</tr>
+<tr>
+<td><code>ssh -p &#123;port&#125; user@host</code></td>
+<td>指定端口登陆主机</td>
+</tr>
+<tr>
+<td><code>ssh-copy-id user@host</code></td>
+<td>拷贝你的 ssh key 到远程主机，避免重复输入密码</td>
+</tr>
+<tr>
+<td><code>scp &#123;fn&#125; user@host:path</code></td>
+<td>拷贝文件到远程主机</td>
+</tr>
+<tr>
+<td><code>scp user@host:path dest</code></td>
+<td>从远程主机拷贝文件回来</td>
+</tr>
+<tr>
+<td><code>scp -P &#123;port&#125; ...</code></td>
+<td>指定端口远程拷贝文件</td>
+</tr>
+<tr>
+<td><code>uname -a</code></td>
+<td>查看内核版本等信息</td>
+</tr>
+<tr>
+<td><code>man &#123;help&#125;</code></td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td><code>man -k &#123;keyword&#125;</code></td>
+<td>查看哪些帮助文档里包含了该关键字</td>
+</tr>
+<tr>
+<td><code>info &#123;help&#125;</code></td>
+<td>查看 info pages，比 man 更强的帮助系统</td>
+</tr>
+<tr>
+<td><code>uptime</code></td>
+<td>查看系统启动时间</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>显示日期</td>
+</tr>
+<tr>
+<td><code>cal</code></td>
+<td>显示日历</td>
+</tr>
+<tr>
+<td><code>vmstat</code></td>
+<td>显示内存和 CPU 使用情况</td>
+</tr>
+<tr>
+<td><code>vmstat 10</code></td>
+<td>每 10 秒打印一行内存和 CPU情况，CTRL+C 退出</td>
+</tr>
+<tr>
+<td><code>free</code></td>
+<td>显示内存和交换区使用情况</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>显示磁盘使用情况</td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td>显示当前目录占用，du . –max-depth=2 可以指定深度</td>
+</tr>
+<tr>
+<td><code>uname</code></td>
+<td>显示系统版本号</td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>显示主机名称</td>
+</tr>
+<tr>
+<td><code>showkey -a</code></td>
+<td>查看终端发送的按键编码</td>
+</tr>
+<tr>
+<td><code>ping &#123;host&#125;</code></td>
+<td>ping 远程主机并显示结果，CTRL+C 退出</td>
+</tr>
+<tr>
+<td><code>ping -c N &#123;host&#125;</code></td>
+<td>ping 远程主机 N 次</td>
+</tr>
+<tr>
+<td><code>traceroute &#123;host&#125;</code></td>
+<td>侦测路由连通情况</td>
+</tr>
+<tr>
+<td><code>mtr &#123;host&#125;</code></td>
+<td>高级版本 traceroute</td>
+</tr>
+<tr>
+<td><code>host &#123;domain&#125;</code></td>
+<td>DNS 查询，{domain} 前面可加 -a 查看详细信息</td>
+</tr>
+<tr>
+<td><code>whois &#123;domain&#125;</code></td>
+<td>取得域名 whois 信息</td>
+</tr>
+<tr>
+<td><code>dig &#123;domain&#125;</code></td>
+<td>取得域名 dns 信息</td>
+</tr>
+<tr>
+<td><code>route -n</code></td>
+<td>查看路由表</td>
+</tr>
+<tr>
+<td><code>netstat -a</code></td>
+<td>列出所有端口</td>
+</tr>
+<tr>
+<td><code>netstat -an</code></td>
+<td>查看所有连接信息，不解析域名</td>
+</tr>
+<tr>
+<td><code>netstat -anp</code></td>
+<td>查看所有连接信息，包含进程信息（需要 sudo）</td>
+</tr>
+<tr>
+<td><code>netstat -l</code></td>
+<td>查看所有监听的端口</td>
+</tr>
+<tr>
+<td><code>netstat -t</code></td>
+<td>查看所有 TCP 链接</td>
+</tr>
+<tr>
+<td><code>netstat -lntu</code></td>
+<td>显示所有正在监听的 TCP 和 UDP 信息</td>
+</tr>
+<tr>
+<td><code>netstat -lntup</code></td>
+<td>显示所有正在监听的 socket 及进程信息</td>
+</tr>
+<tr>
+<td><code>netstat -i</code></td>
+<td>显示网卡信息</td>
+</tr>
+<tr>
+<td><code>netstat -rn</code></td>
+<td>显示当前系统路由表，同 route -n</td>
+</tr>
+<tr>
+<td><code>ss -an</code></td>
+<td>比 netstat -an 更快速更详细</td>
+</tr>
+<tr>
+<td><code>ss -s</code></td>
+<td>统计 TCP 的 established, wait 等</td>
+</tr>
+<tr>
+<td><code>wget &#123;url&#125;</code></td>
+<td>下载文件，可加 –no-check-certificate 忽略 ssl 验证</td>
+</tr>
+<tr>
+<td><code>wget -qO- &#123;url&#125;</code></td>
+<td>下载文件并输出到标准输出（不保存）</td>
+</tr>
+<tr>
+<td><code>curl -sL &#123;url&#125;</code></td>
+<td>同 wget -qO- {url} 没有 wget 的时候使用</td>
+</tr>
+<tr>
+<td><code>sz &#123;file&#125;</code></td>
+<td>发送文件到终端，zmodem 协议</td>
+</tr>
+<tr>
+<td><code>rz</code></td>
+<td>接收终端发送过来的文件</td>
+</tr>
+</tbody></table>
+<h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>varname=value</code></td>
+<td>定义变量</td>
+</tr>
+<tr>
+<td><code>varname=value command</code></td>
+<td>定义子进程变量并执行子进程</td>
+</tr>
+<tr>
+<td><code>echo $varname</code></td>
+<td>查看变量内容</td>
+</tr>
+<tr>
+<td><code>echo $$</code></td>
+<td>查看当前 shell 的进程号</td>
+</tr>
+<tr>
+<td><code>echo $!</code></td>
+<td>查看最近调用的后台任务进程号</td>
+</tr>
+<tr>
+<td><code>echo $?</code></td>
+<td>查看最近一条命令的返回码</td>
+</tr>
+<tr>
+<td><code>export VARNAME=value</code></td>
+<td>设置环境变量（将会影响到子进程）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>array[0]=valA <br>array[1]=valB<br>array[2]=valC</code></td>
+<td>定义数组</td>
+</tr>
+<tr>
+<td><code>array=([0]=valA [1]=valB [2]=valC)</code></td>
+<td>另一种方式</td>
+</tr>
+<tr>
+<td><code>array=(valA valB valC)</code></td>
+<td>另一种方式</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$&#123;array[i]&#125;</code></td>
+<td>取得数组中的元素</td>
+</tr>
+<tr>
+<td><code>$&#123;\#array[@]&#125;</code></td>
+<td>取得数组的长度</td>
+</tr>
+<tr>
+<td><code>$&#123;\#array[i]&#125;</code></td>
+<td>取得数组中某个变量的长度</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>declare -a</code></td>
+<td>查看所有数组</td>
+</tr>
+<tr>
+<td><code>declare -f</code></td>
+<td>查看所有函数</td>
+</tr>
+<tr>
+<td><code>declare -F</code></td>
+<td>查看所有函数，仅显示函数名</td>
+</tr>
+<tr>
+<td><code>declare -i</code></td>
+<td>查看所有整数</td>
+</tr>
+<tr>
+<td><code>declare -r</code></td>
+<td>查看所有只读变量</td>
+</tr>
+<tr>
+<td><code>declare -x</code></td>
+<td>查看所有被导出成环境变量的东西</td>
+</tr>
+<tr>
+<td><code>declare -p varname</code></td>
+<td>输出变量是怎么定义的（类型+值）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$&#123;varname:-word&#125;</code></td>
+<td>如果变量不为空则返回变量，否则返回 word</td>
+</tr>
+<tr>
+<td><code>$&#123;varname:=word&#125;</code></td>
+<td>如果变量不为空则返回变量，否则赋值成 word 并返回</td>
+</tr>
+<tr>
+<td><code>$&#123;varname:?message&#125;</code></td>
+<td>如果变量不为空则返回变量，否则打印错误信息并退出</td>
+</tr>
+<tr>
+<td><code>$&#123;varname:+word&#125;</code></td>
+<td>如果变量不为空则返回 word，否则返回 null</td>
+</tr>
+<tr>
+<td><code>$&#123;varname:offset:len&#125;</code></td>
+<td>取得字符串的子字符串</td>
+</tr>
+<tr>
+<td><code>$&#123;variable#pattern&#125;</code></td>
+<td>如果变量头部匹配 pattern，则删除最小匹配部分返回剩下的</td>
+</tr>
+<tr>
+<td><code>$&#123;variable##pattern&#125;</code></td>
+<td>如果变量头部匹配 pattern，则删除最大匹配部分返回剩下的</td>
+</tr>
+<tr>
+<td><code>$&#123;variable%pattern&#125;</code></td>
+<td>如果变量尾部匹配 pattern，则删除最小匹配部分返回剩下的</td>
+</tr>
+<tr>
+<td><code>$&#123;variable%%pattern&#125;</code></td>
+<td>如果变量尾部匹配 pattern，则删除最大匹配部分返回剩下的</td>
+</tr>
+<tr>
+<td><code>$&#123;variable/pattern/str&#125;</code></td>
+<td>将变量中第一个匹配 pattern 的替换成 str，并返回</td>
+</tr>
+<tr>
+<td><code>$&#123;variable//pattern/str&#125;</code></td>
+<td>将变量中所有匹配 pattern 的地方替换成 str 并返回</td>
+</tr>
+<tr>
+<td><code>$&#123;\#varname&#125;</code></td>
+<td>返回字符串长度</td>
+</tr>
+<tr>
+<td><code>*(patternlist)</code></td>
+<td>零次或者多次匹配</td>
+</tr>
+<tr>
+<td><code>+(patternlist)</code></td>
+<td>一次或者多次匹配</td>
+</tr>
+<tr>
+<td><code>?(patternlist)</code></td>
+<td>零次或者一次匹配</td>
+</tr>
+<tr>
+<td><code>@(patternlist)</code></td>
+<td>单词匹配</td>
+</tr>
+<tr>
+<td><code>!(patternlist)</code></td>
+<td>不匹配</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>array=($text)</code></td>
+<td>按空格分隔 text 成数组，并赋值给变量</td>
+</tr>
+<tr>
+<td><code>IFS=&quot;/&quot; array=($text)</code></td>
+<td>按斜杆分隔字符串 text 成数组，并赋值给变量</td>
+</tr>
+<tr>
+<td><code>text=&quot;$&#123;array[*]&#125;&quot;</code></td>
+<td>用空格链接数组并赋值给变量</td>
+</tr>
+<tr>
+<td><code>text=$(IFS=/; echo &quot;$&#123;array[*]&#125;&quot;)</code></td>
+<td>用斜杠链接数组并赋值给变量</td>
+</tr>
+<tr>
+<td><code>A=( foo bar &quot;a  b c&quot; 42 )</code></td>
+<td>数组定义</td>
+</tr>
+<tr>
+<td><code>B=(&quot;$&#123;A[@]:1:2&#125;&quot;)</code></td>
+<td>数组切片：B=( bar “a  b c” )</td>
+</tr>
+<tr>
+<td><code>C=(&quot;$&#123;A[@]:1&#125;&quot;)</code></td>
+<td>数组切片：C=( bar “a  b c” 42 )</td>
+</tr>
+<tr>
+<td><code>echo &quot;$&#123;B[@]&#125;&quot;</code></td>
+<td>bar a  b c</td>
+</tr>
+<tr>
+<td><code>echo &quot;$&#123;B[1]&#125;&quot;</code></td>
+<td>a  b c</td>
+</tr>
+<tr>
+<td><code>echo &quot;$&#123;C[@]&#125;&quot;</code></td>
+<td>bar a  b c 42</td>
+</tr>
+<tr>
+<td><code>echo &quot;$&#123;C[@]: -2:2&#125;&quot;</code></td>
+<td>a  b c 42  减号前的空格是必须的</td>
+</tr>
+<tr>
+<td><code>$(UNIX command</code>)</td>
+<td>运行命令，并将标准输出内容捕获并返回</td>
+</tr>
+<tr>
+<td><code>varname=$(id -u user)</code></td>
+<td>将用户名为 user 的 uid 赋值给 varname 变量</td>
+</tr>
+<tr>
+<td><code>num=$(expr 1 + 2)</code></td>
+<td>兼容 posix sh 的计算，使用 expr 命令计算结果</td>
+</tr>
+<tr>
+<td><code>num=$(expr $num + 1)</code></td>
+<td>数字自增</td>
+</tr>
+<tr>
+<td><code>expr 2 \* \( 2 + 3 \)</code></td>
+<td>兼容 posix sh 的复杂计算，输出 10</td>
+</tr>
+<tr>
+<td><code>num=$((1 + 2))</code></td>
+<td>计算 1+2 赋值给 num，使用 bash 独有的 $((..)) 计算</td>
+</tr>
+<tr>
+<td><code>num=$(($num + 1))</code></td>
+<td>变量递增</td>
+</tr>
+<tr>
+<td><code>num=$((num + 1))</code></td>
+<td>变量递增，双括号内的 $ 可以省略</td>
+</tr>
+<tr>
+<td><code>num=$((1 + (2 + 3) * 2))</code></td>
+<td>复杂计算</td>
+</tr>
+</tbody></table>
+<h3 id="事件指示符"><a href="#事件指示符" class="headerlink" title="事件指示符"></a>事件指示符</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>!!</code></td>
+<td>上一条命令</td>
+</tr>
+<tr>
+<td><code>!^</code></td>
+<td>上一条命令的第一个单词</td>
+</tr>
+<tr>
+<td><code>!:n</code></td>
+<td>上一条命令的第n个单词</td>
+</tr>
+<tr>
+<td><code>!:n-$</code></td>
+<td>上一条命令的第n个单词到最后一个单词</td>
+</tr>
+<tr>
+<td><code>!$</code></td>
+<td>上一条命令的最后一个单词</td>
+</tr>
+<tr>
+<td><code>!-n:$</code></td>
+<td>上n条命令的最后一个单词</td>
+</tr>
+<tr>
+<td><code>!string</code></td>
+<td>最近一条包含string的命令</td>
+</tr>
+<tr>
+<td><code>!^string1^string2</code></td>
+<td>最近一条包含string1的命令, 快速替换string1为string2</td>
+</tr>
+<tr>
+<td><code>!#</code></td>
+<td>本条命令之前所有的输入内容</td>
+</tr>
+<tr>
+<td><code>!#:n</code></td>
+<td>本条命令之前的第n个单词, 快速备份cp /etc/passwd !#:1.bak</td>
+</tr>
+</tbody></table>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><pre><code class="language-bash"># 定义一个新函数
+function myfunc() &#123;
+    # $1 代表第一个参数，$N 代表第 N 个参数
+    # $# 代表参数个数
+    # $0 代表被调用者自身的名字
+    # $@ 代表所有参数，类型是个数组，想传递所有参数给其他命令用 cmd &quot;$@&quot; 
+    # $* 空格链接起来的所有参数，类型是字符串
+    &#123;shell commands ...&#125;
+&#125;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>myfunc</code></td>
+<td>调用函数 myfunc</td>
+</tr>
+<tr>
+<td><code>myfunc arg1 arg2 arg3</code></td>
+<td>带参数的函数调用</td>
+</tr>
+<tr>
+<td><code>myfunc &quot;$@&quot;</code></td>
+<td>将所有参数传递给函数</td>
+</tr>
+<tr>
+<td><code>myfunc &quot;$&#123;array[@]&#125;&quot;</code></td>
+<td>将一个数组当作多个参数传递给函数</td>
+</tr>
+<tr>
+<td><code>shift</code></td>
+<td>参数左移</td>
+</tr>
+<tr>
+<td><code>unset -f myfunc</code></td>
+<td>删除函数</td>
+</tr>
+<tr>
+<td><code>declare -f</code></td>
+<td>列出函数定义</td>
+</tr>
+</tbody></table>
+<h3 id="条件判断（兼容-posix-sh-的条件判断）：man-test"><a href="#条件判断（兼容-posix-sh-的条件判断）：man-test" class="headerlink" title="条件判断（兼容 posix sh 的条件判断）：man test"></a>条件判断（兼容 posix sh 的条件判断）：man test</h3><table>
+<thead>
+<tr>
+<th>逻辑</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>statement1 &amp;&amp; statement2</code></td>
+<td>and 操作符</td>
+</tr>
+<tr>
+<td><code>statement1 || statement2</code></td>
+<td>or 操作符</td>
+</tr>
+<tr>
+<td><code>exp1 -a exp2</code></td>
+<td>exp1 和 exp2 同时为真时返回真（POSIX XSI扩展）</td>
+</tr>
+<tr>
+<td><code>exp1 -o exp2</code></td>
+<td>exp1 和 exp2 有一个为真就返回真（POSIX XSI扩展）</td>
+</tr>
+<tr>
+<td><code>( expression )</code></td>
+<td>如果 expression 为真时返回真，输入注意括号前反斜杆</td>
+</tr>
+<tr>
+<td><code>! expression</code></td>
+<td>如果 expression 为假那返回真</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>字符串比较</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>str1 = str2</code></td>
+<td>判断字符串相等，如 [ “$x” = “$y” ] &amp;&amp; echo yes</td>
+</tr>
+<tr>
+<td><code>str1 != str2</code></td>
+<td>判断字符串不等，如 [ “$x” != “$y” ] &amp;&amp; echo yes</td>
+</tr>
+<tr>
+<td><code>str1 &lt; str2</code></td>
+<td>字符串小于，如 [ “$x” &lt; “$y” ] &amp;&amp; echo yes</td>
+</tr>
+<tr>
+<td><code>str2 &gt; str2</code></td>
+<td>字符串大于，注意 &lt; 或 &gt; 是字面量，输入时要加反斜杆</td>
+</tr>
+<tr>
+<td><code>-n str1</code></td>
+<td>判断字符串不为空（长度大于零）</td>
+</tr>
+<tr>
+<td><code>-z str1</code></td>
+<td>判断字符串为空（长度等于零）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a file</code></td>
+<td>判断文件存在，如 [ -a /tmp/abc ] &amp;&amp; echo “exists”</td>
+</tr>
+<tr>
+<td><code>-d file</code></td>
+<td>判断文件存在，且该文件是一个目录</td>
+</tr>
+<tr>
+<td><code>-e file</code></td>
+<td>判断文件存在，和 -a 等价</td>
+</tr>
+<tr>
+<td><code>-f file</code></td>
+<td>判断文件存在，且该文件是一个普通文件（非目录等）</td>
+</tr>
+<tr>
+<td><code>-r file</code></td>
+<td>判断文件存在，且可读</td>
+</tr>
+<tr>
+<td><code>-s file</code></td>
+<td>判断文件存在，且尺寸大于0</td>
+</tr>
+<tr>
+<td><code>-w file</code></td>
+<td>判断文件存在，且可写</td>
+</tr>
+<tr>
+<td><code>-x file</code></td>
+<td>判断文件存在，且执行</td>
+</tr>
+<tr>
+<td><code>-N file</code></td>
+<td>文件上次修改过后还没有读取过</td>
+</tr>
+<tr>
+<td><code>-O file</code></td>
+<td>文件存在且属于当前用户</td>
+</tr>
+<tr>
+<td><code>-G file</code></td>
+<td>文件存在且匹配你的用户组</td>
+</tr>
+<tr>
+<td><code>file1 -nt file2</code></td>
+<td>文件1 比 文件2 新</td>
+</tr>
+<tr>
+<td><code>file1 -ot file2</code></td>
+<td>文件1 比 文件2 旧</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>数字比较</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>num1 -eq num2</code></td>
+<td>数字判断：num1 == num2</td>
+</tr>
+<tr>
+<td><code>num1 -ne num2</code></td>
+<td>数字判断：num1 != num2</td>
+</tr>
+<tr>
+<td><code>num1 -lt num2</code></td>
+<td>数字判断：num1 &lt; num2</td>
+</tr>
+<tr>
+<td><code>num1 -le num2</code></td>
+<td>数字判断：num1 &lt;= num2</td>
+</tr>
+<tr>
+<td><code>num1 -gt num2</code></td>
+<td>数字判断：num1 &gt; num2</td>
+</tr>
+<tr>
+<td><code>num1 -ge num2</code></td>
+<td>数字判断：num1 &gt;= num2</td>
+</tr>
+</tbody></table>
+<h3 id="分支控制：if-和经典-test，兼容-posix-sh-的条件判断语句"><a href="#分支控制：if-和经典-test，兼容-posix-sh-的条件判断语句" class="headerlink" title="分支控制：if 和经典 test，兼容 posix sh 的条件判断语句"></a>分支控制：if 和经典 test，兼容 posix sh 的条件判断语句</h3><pre><code class="language-bash">test &#123;expression&#125;         # 判断条件为真的话 test 程序返回0 否则非零
+[ expression ]            # 判断条件为真的话返回0 否则非零
+
+test &quot;abc&quot; = &quot;def&quot;        # 查看返回值 echo $? 显示 1，因为条件为假
+test &quot;abc&quot; != &quot;def&quot;       # 查看返回值 echo $? 显示 0，因为条件为真
+
+test -a /tmp; echo $?     # 调用 test 判断 /tmp 是否存在，并打印 test 的返回值
+[ -a /tmp ]; echo $?      # 和上面完全等价，/tmp 肯定是存在的，所以输出是 0
+
+test cond &amp;&amp; cmd1         # 判断条件为真时执行 cmd1
+[ cond ] &amp;&amp; cmd1          # 和上面完全等价
+[ cond ] &amp;&amp; cmd1 || cmd2  # 条件为真执行 cmd1 否则执行 cmd2
+
+# 判断 /etc/passwd 文件是否存在
+# 经典的 if 语句就是判断后面的命令返回值为0的话，认为条件为真，否则为假
+if test -e /etc/passwd; then
+    echo &quot;alright it exists ... &quot;
+else
+    echo &quot;it doesn&#39;t exist ... &quot;
+fi
+
+# 和上面完全等价，[ 是个和 test 一样的可执行程序，但最后一个参数必须为 ]
+# 这个名字为 &quot;[&quot; 的可执行程序一般就在 /bin 或 /usr/bin 下面，比 test 优雅些
+if [ -e /etc/passwd ]; then   
+    echo &quot;alright it exists ... &quot;
+else
+    echo &quot;it doesn&#39;t exist ... &quot;
+fi
+
+# 和上面两个完全等价，其实到 bash 时代 [ 已经是内部命令了，用 enable 可以看到
+[ -e /etc/passwd ] &amp;&amp; echo &quot;alright it exists&quot; || echo &quot;it doesn&#39;t exist&quot;
+
+# 判断变量的值
+if [ &quot;$varname&quot; = &quot;foo&quot; ]; then
+    echo &quot;this is foo&quot;
+elif [ &quot;$varname&quot; = &quot;bar&quot; ]; then
+    echo &quot;this is bar&quot;
+else
+    echo &quot;neither&quot;
+fi
+
+# 复杂条件判断，注意 || 和 &amp;&amp; 是完全兼容 POSIX 的推荐写法
+if [ $x -gt 10 ] &amp;&amp; [ $x -lt 20 ]; then
+    echo &quot;yes, between 10 and 20&quot;
+fi
+
+# 可以用 &amp;&amp; 命令连接符来做和上面完全等价的事情
+[ $x -gt 10 ] &amp;&amp; [ $x -lt 20 ] &amp;&amp; echo &quot;yes, between 10 and 20&quot;
+
+# 小括号和 -a -o 是 POSIX XSI 扩展写法，小括号是字面量，输入时前面要加反斜杆
+if [ \( $x -gt 10 \) -a \( $x -lt 20 \) ]; then
+    echo &quot;yes, between 10 and 20&quot;
+fi
+
+# 同样可以用 &amp;&amp; 命令连接符来做和上面完全等价的事情
+[ \( $x -gt 10 \) -a \( $x -lt 20 \) ] &amp;&amp; echo &quot;yes, between 10 and 20&quot;
+
+
+# 判断程序存在的话就执行
+[ -x /bin/ls ] &amp;&amp; /bin/ls -l
+
+# 如果不考虑兼容 posix sh 和 dash 这些的话，可用 bash 独有的 ((..)) 和 [[..]]:
+https://www.ibm.com/developerworks/library/l-bash-test/index.html
+</code></pre>
+<h3 id="流程控制：while-for-case-until"><a href="#流程控制：while-for-case-until" class="headerlink" title="流程控制：while / for / case / until"></a>流程控制：while / for / case / until</h3><pre><code class="language-bash">
+# while 循环
+while condition; do
+    statements
+done
+
+i=1
+while [ $i -le 10 ]; do
+    echo $i; 
+    i=$(expr $i + 1)
+done
+
+# for 循环：上面的 while 语句等价
+for i in &#123;1..10&#125;; do
+    echo $i
+done
+
+for name [in list]; do
+    statements
+done
+
+# for 列举某目录下面的所有文件
+for f in /home/*; do 
+    echo $f
+done
+
+# bash 独有的 (( .. )) 语句，更接近 C 语言，但是不兼容 posix sh
+for (( initialisation ; ending condition ; update )); do
+    statements
+done
+
+# 和上面的写法等价
+for ((i = 0; i &lt; 10; i++)); do echo $i; done
+
+# case 判断
+case expression in 
+    pattern1 )
+        statements ;;
+    pattern2 )
+        statements ;;
+    * )
+        otherwise ;;
+esac
+
+# until 语句
+until condition; do
+    statements
+done
+
+# select 语句
+select name [in list]; do
+  statements that can use $name
+done
+</code></pre>
+<h3 id="命令处理"><a href="#命令处理" class="headerlink" title="命令处理"></a>命令处理</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>command ls</code></td>
+<td>忽略 alias 直接执行程序或者内建命令 ls</td>
+</tr>
+<tr>
+<td><code>builtin cd</code></td>
+<td>忽略 alias 直接运行内建的 cd 命令</td>
+</tr>
+<tr>
+<td><code>enable</code></td>
+<td>列出所有 bash 内置命令，或禁止某命令</td>
+</tr>
+<tr>
+<td><code>help &#123;builtin_command&#125;</code></td>
+<td>查看内置命令的帮助（仅限 bash 内置命令）</td>
+</tr>
+<tr>
+<td><code>eval $script</code></td>
+<td>对 script 变量中的字符串求值（执行）</td>
+</tr>
+</tbody></table>
+<h3 id="输出-输入-重定向"><a href="#输出-输入-重定向" class="headerlink" title="输出/输入 重定向"></a>输出/输入 重定向</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cmd1 | cmd2</code></td>
+<td>管道，cmd1 的标准输出接到 cmd2 的标准输入</td>
+</tr>
+<tr>
+<td><code>&lt; file</code></td>
+<td>将文件内容重定向为命令的标准输入</td>
+</tr>
+<tr>
+<td><code>&gt; file</code></td>
+<td>将命令的标准输出重定向到文件，会覆盖文件</td>
+</tr>
+<tr>
+<td><code>&gt;&gt; file</code></td>
+<td>将命令的标准输出重定向到文件，追加不覆盖</td>
+</tr>
+<tr>
+<td><code>&gt;| file</code></td>
+<td>强制输出到文件，即便设置过：set -o noclobber</td>
+</tr>
+<tr>
+<td><code>n&gt;| file</code></td>
+<td>强制将文件描述符 n的输出重定向到文件</td>
+</tr>
+<tr>
+<td><code>&lt;&gt; file</code></td>
+<td>同时使用该文件作为标准输入和标准输出</td>
+</tr>
+<tr>
+<td><code>n&lt;&gt; file</code></td>
+<td>同时使用文件作为文件描述符 n 的输出和输入</td>
+</tr>
+<tr>
+<td><code>n&gt; file</code></td>
+<td>重定向文件描述符 n 的输出到文件</td>
+</tr>
+<tr>
+<td><code>n&lt; file</code></td>
+<td>重定向文件描述符 n 的输入为文件内容</td>
+</tr>
+<tr>
+<td><code>n&gt;&amp;</code></td>
+<td>将标准输出 dup/合并 到文件描述符 n</td>
+</tr>
+<tr>
+<td><code>n&lt;&amp;</code></td>
+<td>将标准输入 dump/合并 定向为描述符 n</td>
+</tr>
+<tr>
+<td><code>n&gt;&amp;m</code></td>
+<td>文件描述符 n 被作为描述符 m 的副本，输出用</td>
+</tr>
+<tr>
+<td><code>n&lt;&amp;m</code></td>
+<td>文件描述符 n 被作为描述符 m 的副本，输入用</td>
+</tr>
+<tr>
+<td><code>&amp;&gt;file</code></td>
+<td>将标准输出和标准错误重定向到文件</td>
+</tr>
+<tr>
+<td><code>&lt;&amp;-</code></td>
+<td>关闭标准输入</td>
+</tr>
+<tr>
+<td><code>&gt;&amp;-</code></td>
+<td>关闭标准输出</td>
+</tr>
+<tr>
+<td><code>n&gt;&amp;-</code></td>
+<td>关闭作为输出的文件描述符 n</td>
+</tr>
+<tr>
+<td><code>n&lt;&amp;-</code></td>
+<td>关闭作为输入的文件描述符 n</td>
+</tr>
+<tr>
+<td><code>diff &lt;(cmd1) &lt;(cmd2)</code></td>
+<td>比较两个命令的输出</td>
+</tr>
+</tbody></table>
+<h3 id="文本处理-cut"><a href="#文本处理-cut" class="headerlink" title="文本处理 - cut"></a>文本处理 - cut</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cut -c 1-16</code></td>
+<td>截取每行头16个字符</td>
+</tr>
+<tr>
+<td><code>cut -c 1-16 file</code></td>
+<td>截取指定文件中每行头 16个字符</td>
+</tr>
+<tr>
+<td><code>cut -c3-</code></td>
+<td>截取每行从第三个字符开始到行末的内容</td>
+</tr>
+<tr>
+<td><code>cut -d&#39;:&#39; -f5</code></td>
+<td>截取用冒号分隔的第五列内容</td>
+</tr>
+<tr>
+<td><code>cut -d&#39;;&#39; -f2,10</code></td>
+<td>截取用分号分隔的第二和第十列内容</td>
+</tr>
+<tr>
+<td><code>cut -d&#39; &#39; -f3-7</code></td>
+<td>截取空格分隔的三到七列</td>
+</tr>
+<tr>
+<td><code>echo &quot;hello&quot; | cut -c1-3</code></td>
+<td>显示 hel</td>
+</tr>
+<tr>
+<td><code>echo &quot;hello sir&quot; | cut -d&#39; &#39; -f2</code></td>
+<td>显示 sir</td>
+</tr>
+<tr>
+<td><code>ps | tr -s &quot; &quot; | cut -d &quot; &quot; -f 2,3,4</code></td>
+<td>cut 搭配 tr 压缩字符</td>
+</tr>
+</tbody></table>
+<h3 id="文本处理-awk-sed"><a href="#文本处理-awk-sed" class="headerlink" title="文本处理 - awk / sed"></a>文本处理 - awk / sed</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>awk &#39;&#123;print $5&#125;&#39; file</code></td>
+<td>打印文件中以空格分隔的第五列</td>
+</tr>
+<tr>
+<td><code>awk -F &#39;,&#39; &#39;&#123;print $5&#125;&#39; file</code></td>
+<td>打印文件中以逗号分隔的第五列</td>
+</tr>
+<tr>
+<td><code>awk &#39;/str/ &#123;print $2&#125;&#39; file</code></td>
+<td>打印文件中包含 str 的所有行的第二列</td>
+</tr>
+<tr>
+<td><code>awk -F &#39;,&#39; &#39;&#123;print $NF&#125;&#39; file</code></td>
+<td>打印逗号分隔的文件中的每行最后一列</td>
+</tr>
+<tr>
+<td><code>awk &#39;&#123;s+=$1&#125; END &#123;print s&#125;&#39; file</code></td>
+<td>计算所有第一列的合</td>
+</tr>
+<tr>
+<td><code>awk &#39;NR%3==1&#39; file</code></td>
+<td>从第一行开始，每隔三行打印一行</td>
+</tr>
+<tr>
+<td><code>sed &#39;s/find/replace/&#39; file</code></td>
+<td>替换文件中首次出现的字符串并输出结果</td>
+</tr>
+<tr>
+<td><code>sed &#39;10s/find/replace/&#39; file</code></td>
+<td>替换文件第 10 行内容</td>
+</tr>
+<tr>
+<td><code>sed &#39;10,20s/find/replace/&#39; file</code></td>
+<td>替换文件中 10-20 行内容</td>
+</tr>
+<tr>
+<td><code>sed -r &#39;s/regex/replace/g&#39; file</code></td>
+<td>替换文件中所有出现的字符串</td>
+</tr>
+<tr>
+<td><code>sed -i &#39;s/find/replace/g&#39; file</code></td>
+<td>替换文件中所有出现的字符并且覆盖文件</td>
+</tr>
+<tr>
+<td><code>sed -i &#39;/find/i\newline&#39; file</code></td>
+<td>在文件的匹配文本前插入行</td>
+</tr>
+<tr>
+<td><code>sed -i &#39;/find/a\newline&#39; file</code></td>
+<td>在文件的匹配文本后插入行</td>
+</tr>
+<tr>
+<td><code>sed &#39;/line/s/find/replace/&#39; file</code></td>
+<td>先搜索行特征再执行替换</td>
+</tr>
+<tr>
+<td><code>sed -e &#39;s/f/r/&#39; -e &#39;s/f/r&#39; file</code></td>
+<td>执行多次替换</td>
+</tr>
+<tr>
+<td><code>sed &#39;s#find#replace#&#39; file</code></td>
+<td>使用 # 替换 / 来避免 pattern 中有斜杆</td>
+</tr>
+<tr>
+<td><code>sed -i -r &#39;s/^\s+//g&#39; file</code></td>
+<td>删除文件每行头部空格</td>
+</tr>
+<tr>
+<td><code>sed &#39;/^$/d&#39; file</code></td>
+<td>删除文件空行并打印</td>
+</tr>
+<tr>
+<td><code>sed -i &#39;s/\s\+$//&#39; file</code></td>
+<td>删除文件每行末尾多余空格</td>
+</tr>
+<tr>
+<td><code>sed -n &#39;2p&#39; file</code></td>
+<td>打印文件第二行</td>
+</tr>
+<tr>
+<td><code>sed -n &#39;2,5p&#39; file</code></td>
+<td>打印文件第二到第五行</td>
+</tr>
+</tbody></table>
+<h3 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 - sort"></a>排序 - sort</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>sort file</code></td>
+<td>排序文件</td>
+</tr>
+<tr>
+<td><code>sort -r file</code></td>
+<td>反向排序（降序）</td>
+</tr>
+<tr>
+<td><code>sort -n file</code></td>
+<td>使用数字而不是字符串进行比较</td>
+</tr>
+<tr>
+<td><code>sort -t: -k 3n /etc/passwd</code></td>
+<td>按 passwd 文件的第三列进行排序</td>
+</tr>
+<tr>
+<td><code>sort -u file</code></td>
+<td>去重排序</td>
+</tr>
+</tbody></table>
+<h3 id="快速跳转-https-github-com-rupa-z"><a href="#快速跳转-https-github-com-rupa-z" class="headerlink" title="快速跳转 - https://github.com/rupa/z"></a>快速跳转 - <a target="_blank" rel="noopener" href="https://github.com/rupa/z">https://github.com/rupa/z</a></h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source /path/to/z.sh</code></td>
+<td>.bashrc 中初始化 z.sh</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>列出所有历史路径以及他们的权重</td>
+</tr>
+<tr>
+<td><code>z foo</code></td>
+<td>跳到历史路径中匹配 foo 的权重最大的目录</td>
+</tr>
+<tr>
+<td><code>z foo bar</code></td>
+<td>跳到历史路径中匹配 foo 和 bar 权重最大的目录</td>
+</tr>
+<tr>
+<td><code>z -l foo</code></td>
+<td>列出所有历史路径中匹配 foo 的目录及权重</td>
+</tr>
+<tr>
+<td><code>z -r foo</code></td>
+<td>按照最高访问次数优先进行匹配跳转</td>
+</tr>
+<tr>
+<td><code>z -t foo</code></td>
+<td>按照最近访问优先进行匹配跳转</td>
+</tr>
+</tbody></table>
+<h3 id="键盘绑定"><a href="#键盘绑定" class="headerlink" title="键盘绑定"></a>键盘绑定</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>bind &#39;&quot;\eh&quot;:&quot;\C-b&quot;&#39;</code></td>
+<td>绑定 ALT+h 为光标左移，同 CTRL+b / <Left></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\el&quot;:&quot;\C-f&quot;&#39;</code></td>
+<td>绑定 ALT+l 为光标右移，同 CTRL+f / <Right></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\ej&quot;:&quot;\C-n&quot;&#39;</code></td>
+<td>绑定 ALT+j 为下条历史，同 CTRL+n / <Down></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\ek&quot;:&quot;\C-p&quot;&#39;</code></td>
+<td>绑定 ALT+k 为上条历史，同 CTRL+p / <Up></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\eH&quot;:&quot;\eb&quot;&#39;</code></td>
+<td>绑定 ALT+H 为光标左移一个单词，同 ALT-b</td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\eL&quot;:&quot;\ef&quot;&#39;</code></td>
+<td>绑定 ALT+L 为光标右移一个单词，同 ALT-f</td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\eJ&quot;:&quot;\C-a&quot;&#39;</code></td>
+<td>绑定 ALT+J 为移动到行首，同 CTRL+a / <Home></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\eK&quot;:&quot;\C-e&quot;&#39;</code></td>
+<td>绑定 ALT+K 为移动到行末，同 CTRL+e / <End></td>
+</tr>
+<tr>
+<td><code>bind &#39;&quot;\e;&quot;:&quot;ls -l\n&quot;&#39;</code></td>
+<td>绑定 ALT+; 为执行 ls -l 命令</td>
+</tr>
+</tbody></table>
+<h3 id="网络管理：ip-ifconfig-nmap-…"><a href="#网络管理：ip-ifconfig-nmap-…" class="headerlink" title="网络管理：ip / ifconfig / nmap …"></a>网络管理：ip / ifconfig / nmap …</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ip a</code></td>
+<td>显示所有网络地址，同 ip address</td>
+</tr>
+<tr>
+<td><code>ip a show eth1</code></td>
+<td>显示网卡 IP 地址</td>
+</tr>
+<tr>
+<td><code>ip a add 172.16.1.23/24 dev eth1</code></td>
+<td>添加网卡 IP 地址</td>
+</tr>
+<tr>
+<td><code>ip a del 172.16.1.23/24 dev eth1</code></td>
+<td>删除网卡 IP 地址</td>
+</tr>
+<tr>
+<td><code>ip link show dev eth0</code></td>
+<td>显示网卡设备属性</td>
+</tr>
+<tr>
+<td><code>ip link set eth1 up</code></td>
+<td>激活网卡</td>
+</tr>
+<tr>
+<td><code>ip link set eth1 down</code></td>
+<td>关闭网卡</td>
+</tr>
+<tr>
+<td><code>ip link set eth1 address &#123;mac&#125;</code></td>
+<td>修改 MAC 地址</td>
+</tr>
+<tr>
+<td><code>ip neighbour</code></td>
+<td>查看 ARP 缓存</td>
+</tr>
+<tr>
+<td><code>ip route</code></td>
+<td>查看路由表</td>
+</tr>
+<tr>
+<td><code>ip route add 10.1.0.0/24 via 10.0.0.253 dev eth0</code></td>
+<td>添加静态路由</td>
+</tr>
+<tr>
+<td><code>ip route del 10.1.0.0/24</code></td>
+<td>删除静态路由</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ifconfig</code></td>
+<td>显示所有网卡和接口信息</td>
+</tr>
+<tr>
+<td><code>ifconfig -a</code></td>
+<td>显示所有网卡（包括开机没启动的）信息</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0</code></td>
+<td>指定设备显示信息</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0 up</code></td>
+<td>激活网卡</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0 down</code></td>
+<td>关闭网卡</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0 192.168.120.56</code></td>
+<td>给网卡配置 IP 地址</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0 10.0.0.8 netmask 255.255.255.0 up</code></td>
+<td>配置 IP 并启动</td>
+</tr>
+<tr>
+<td><code>ifconfig eth0 hw ether 00:aa:bb:cc:dd:ee</code></td>
+<td>修改 MAC 地址</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nmap 10.0.0.12</code></td>
+<td>扫描主机 1-1000 端口</td>
+</tr>
+<tr>
+<td><code>nmap -p 1024-65535 10.0.0.12</code></td>
+<td>扫描给定端口</td>
+</tr>
+<tr>
+<td><code>nmap 10.0.0.0/24</code></td>
+<td>给定网段扫描局域网内所有主机</td>
+</tr>
+<tr>
+<td><code>nmap -O -sV 10.0.0.12</code></td>
+<td>探测主机服务和操作系统版本</td>
+</tr>
+</tbody></table>
+<h3 id="有趣的命令"><a href="#有趣的命令" class="headerlink" title="有趣的命令"></a>有趣的命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>man hier</code></td>
+<td>查看文件系统的结构和含义</td>
+</tr>
+<tr>
+<td><code>man test</code></td>
+<td>查看 posix sh 的条件判断帮助</td>
+</tr>
+<tr>
+<td><code>man ascii</code></td>
+<td>显示 ascii 表</td>
+</tr>
+<tr>
+<td><code>getconf LONG_BIT</code></td>
+<td>查看系统是 32 位还是 64 位</td>
+</tr>
+<tr>
+<td><code>bind -P</code></td>
+<td>列出所有 bash 的快捷键</td>
+</tr>
+<tr>
+<td><code>mount | column -t</code></td>
+<td>漂亮的列出当前加载的文件系统</td>
+</tr>
+<tr>
+<td><code>curl ip.cn</code></td>
+<td>取得外网 ip 地址和服务商信息</td>
+</tr>
+<tr>
+<td><code>disown -a &amp;&amp; exit</code></td>
+<td>关闭所有后台任务并退出</td>
+</tr>
+<tr>
+<td><code>cat /etc/issue</code></td>
+<td>查看 Linux 发行版信息</td>
+</tr>
+<tr>
+<td><code>lsof -i port:80</code></td>
+<td>哪个程序在使用 80 端口？</td>
+</tr>
+<tr>
+<td><code>showkey -a</code></td>
+<td>取得按键的 ASCII 码</td>
+</tr>
+<tr>
+<td><code>svn diff | view -</code></td>
+<td>使用 Vim 来显示带色彩的 diff 输出</td>
+</tr>
+<tr>
+<td><code>mv filename.&#123;old,new&#125;</code></td>
+<td>快速文件改名</td>
+</tr>
+<tr>
+<td><code>time read</code></td>
+<td>使用 CTRL-D 停止，最简单的计时功能</td>
+</tr>
+<tr>
+<td><code>cp file.txt&#123;,.bak&#125;</code></td>
+<td>快速备份文件</td>
+</tr>
+<tr>
+<td><code>sudo touch /forcefsck</code></td>
+<td>强制在下次重启时扫描磁盘</td>
+</tr>
+<tr>
+<td><code>find ~ -mmin 60 -type f</code></td>
+<td>查找 $HOME 目录中，60 分钟内修改过的文件</td>
+</tr>
+<tr>
+<td><code>curl wttr.in/~beijing</code></td>
+<td>查看北京的天气预报</td>
+</tr>
+<tr>
+<td><code>echo $&#123;SSH_CLIENT%% *&#125;</code></td>
+<td>取得你是从什么 IP 链接到当前主机上的</td>
+</tr>
+<tr>
+<td><code>echo $[RANDOM%X+1]</code></td>
+<td>取得 1 到 X 之间的随机数</td>
+</tr>
+<tr>
+<td><code>bind -x &#39;&quot;\C-l&quot;:ls -l&#39;</code></td>
+<td>设置 CTRL+l 为执行 ls -l 命令</td>
+</tr>
+<tr>
+<td><code>find / -type f -size +5M</code></td>
+<td>查找大于 5M 的文件</td>
+</tr>
+<tr>
+<td><code>chmod --reference f1 f2</code></td>
+<td>将 f2 的权限设置成 f1 一模一样的</td>
+</tr>
+<tr>
+<td><code>curl -L cheat.sh</code></td>
+<td>速查表大全</td>
+</tr>
+</tbody></table>
+<h3 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h3><pre><code class="language-bash"># 列出最常使用的命令
+history | awk &#39;&#123;a[$2]++&#125;END&#123;for(i in a)&#123;print a[i] &quot; &quot; i&#125;&#125;&#39; | sort -rn | head
+
+# 列出所有网络状态：ESTABLISHED / TIME_WAIT / FIN_WAIT1 / FIN_WAIT2 
+netstat -n | awk &#39;/^tcp/ &#123;++tt[$NF]&#125; END &#123;for (a in tt) print a, tt[a]&#125;&#39;
+
+# 通过 SSH 来 mount 文件系统
+sshfs name@server:/path/to/folder /path/to/mount/point
+
+# 显示前十个运行的进程并按内存使用量排序
+ps aux | sort -nk +4 | tail
+
+# 在右上角显示时钟
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done&amp;
+
+# 从网络上的压缩文件中解出一个文件来，并避免保存中间文件
+wget -qO - &quot;http://www.tarball.com/tarball.gz&quot; | tar zxvf -
+
+# 性能测试：测试处理器性能
+python -c &quot;import test.pystone;print(test.pystone.pystones())&quot;
+
+# 性能测试：测试内存带宽
+dd if=/dev/zero of=/dev/null bs=1M count=32768
+
+# Linux 下挂载一个 iso 文件
+mount /path/to/file.iso /mnt/cdrom -oloop
+
+# 通过主机 A 直接 ssh 到主机 B
+ssh -t hostA ssh hostB
+
+# 下载一个网站的所有图片
+wget -r -l1 --no-parent -nH -nd -P/tmp -A&quot;.gif,.jpg&quot; http://example.com/images
+
+# 快速创建项目目录
+mkdir -p work/&#123;project1,project2&#125;/&#123;src,bin,bak&#125;
+
+# 按日期范围查找文件
+find . -type f -newermt &quot;2010-01-01&quot; ! -newermt &quot;2010-06-01&quot;
+
+# 显示当前正在使用网络的进程
+lsof -P -i -n | cut -f 1 -d &quot; &quot;| uniq | tail -n +2
+
+# Vim 中保存一个没有权限的文件
+:w !sudo tee &gt; /dev/null %
+
+# 在 .bashrc / .bash_profile 中加载另外一个文件（比如你保存在 github 上的配置）
+source ~/github/profiles/my_bash_init.sh
+
+# 反向代理：将外网主机（202.115.8.1）端口（8443）转发到内网主机 192.168.1.2:443
+ssh -CqTnN -R 0.0.0.0:8443:192.168.1.2:443  user@202.115.8.1
+
+# 正向代理：将本地主机的 8443 端口，通过 192.168.1.3 转发到 192.168.1.2:443 
+ssh -CqTnN -L 0.0.0.0:8443:192.168.1.2:443  user@192.168.1.3
+
+# socks5 代理：把本地 1080 端口的 socks5 的代理请求通过远程主机转发出去
+ssh -CqTnN -D localhost:1080  user@202.115.8.1
+
+# 终端下正确设置 ALT 键和 BackSpace 键
+http://www.skywind.me/blog/archives/2021
+
+
+### 有用的函数
+
+# 自动解压：判断文件后缀名并调用相应解压命令
+function q-extract() &#123;
+    if [ -f $1 ] ; then
+        case $1 in
+        *.tar.bz2)   tar -xvjf $1    ;;
+        *.tar.gz)    tar -xvzf $1    ;;
+        *.tar.xz)    tar -xvJf $1    ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       rar x $1       ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar -xvf $1     ;;
+        *.tbz2)      tar -xvjf $1    ;;
+        *.tgz)       tar -xvzf $1    ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)           echo &quot;don&#39;t know how to extract &#39;$1&#39;...&quot; ;;
+        esac
+    else
+        echo &quot;&#39;$1&#39; is not a valid file!&quot;
+    fi
+&#125;
+
+# 自动压缩：判断后缀名并调用相应压缩程序
+function q-compress() &#123;
+    if [ -n &quot;$1&quot; ] ; then
+        FILE=$1
+        case $FILE in
+        *.tar) shift &amp;&amp; tar -cf $FILE $* ;;
+        *.tar.bz2) shift &amp;&amp; tar -cjf $FILE $* ;;
+        *.tar.xz) shift &amp;&amp; tar -cJf $FILE $* ;;
+        *.tar.gz) shift &amp;&amp; tar -czf $FILE $* ;;
+        *.tgz) shift &amp;&amp; tar -czf $FILE $* ;;
+        *.zip) shift &amp;&amp; zip $FILE $* ;;
+        *.rar) shift &amp;&amp; rar $FILE $* ;;
+        esac
+    else
+        echo &quot;usage: q-compress &lt;foo.tar.gz&gt; ./foo ./bar&quot;
+    fi
+&#125;
+
+# 漂亮的带语法高亮的 color cat ，需要先 pip install pygments
+function ccat() &#123;
+    local style=&quot;monokai&quot;
+    if [ $# -eq 0 ]; then
+        pygmentize -P style=$style -P tabsize=4 -f terminal256 -g
+    else
+        for NAME in $@; do
+            pygmentize -P style=$style -P tabsize=4 -f terminal256 -g &quot;$NAME&quot;
+        done
+    fi
+&#125;
+</code></pre>
+<h3 id="好玩的配置"><a href="#好玩的配置" class="headerlink" title="好玩的配置"></a>好玩的配置</h3><pre><code class="language-bash"># 放到你的 ~/.bashrc 配置文件中，给 man 增加漂亮的色彩高亮
+export LESS_TERMCAP_mb=$&#39;\E[1m\E[32m&#39;
+export LESS_TERMCAP_mh=$&#39;\E[2m&#39;
+export LESS_TERMCAP_mr=$&#39;\E[7m&#39;
+export LESS_TERMCAP_md=$&#39;\E[1m\E[36m&#39;
+export LESS_TERMCAP_ZW=&quot;&quot;
+export LESS_TERMCAP_us=$&#39;\E[4m\E[1m\E[37m&#39;
+export LESS_TERMCAP_me=$&#39;\E(B\E[m&#39;
+export LESS_TERMCAP_ue=$&#39;\E[24m\E(B\E[m&#39;
+export LESS_TERMCAP_ZO=&quot;&quot;
+export LESS_TERMCAP_ZN=&quot;&quot;
+export LESS_TERMCAP_se=$&#39;\E[27m\E(B\E[m&#39;
+export LESS_TERMCAP_ZV=&quot;&quot;
+export LESS_TERMCAP_so=$&#39;\E[1m\E[33m\E[44m&#39;
+
+# ALT+hjkl/HJKL 快速移动光标，将下面内容添加到 ~/.inputrc 中可作用所有工具，
+# 包括 bash/zsh/python/lua 等使用 readline 的工具，帮助见：info rluserman
+&quot;\eh&quot;: backward-char
+&quot;\el&quot;: forward-char
+&quot;\ej&quot;: next-history
+&quot;\ek&quot;: previous-history
+&quot;\eH&quot;: backward-word
+&quot;\eL&quot;: forward-word
+&quot;\eJ&quot;: beginning-of-line
+&quot;\eK&quot;: end-of-line
+</code></pre>
+
+    </main>
+  </div>
+
+  <div id="/bash/" class='pre-footer leancloud_visitors' data-flag-title="Bash" data-js-no-preview>
+    <i class='icon'></i>
+    <p class="leancloud-visitors-count" style="margin-top: 0;"></p>
+  </div>
+
+</article>
+
+  <div id="vcomments" style="max-width: 1232px;margin: 0 auto;"></div>
+  <script>
+      window.addEventListener('load', function () {
+          new Valine({"el":"#vcomments","enable":true,"appId":"1G4BM5BM5FWY8sHttxI7RzmK-gzGzoHsz","appKey":"HpeTK86qFg08p2i329bvg2os","notify":false,"verify":false,"pageSize":10,"avatar":"mm","lang":"zh-cn","placeholder":"Just go go","visitor":true,"recordIP":true});
+      });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/keep-markup/prism-keep-markup.min.js"></script>
+
+<script src="/js/article.js"></script>
+
+</section>
+      </div>
+    </div>                
+    <!-- <nav id="mobile-nav">
+  
+</nav> -->
+    <!-- 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+
+ -->
+  </div>
+
+</body>
+</html>

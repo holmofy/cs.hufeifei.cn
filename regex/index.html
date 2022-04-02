@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202020"/>
+  
+    <meta name="keywords" content="regex,正则表达式,参考手册" />
+  
+
+    
+    <meta name="description" content="正则表达式参考手册" />
+  
+  
+  
+
+
+  
+  <title>Regex | Cheat Sheets</title>
+  
+    <link rel="icon" href="/img/favicon.min.webp">
+  
+  
+<link rel="stylesheet" href="/css/bundle.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-H58NSPXYPF');
+  </script>
+  <script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "9nz5jukf69");
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <nav class='top-nav' data-js-no-preview role='navigation'>
+  <div class='container'>
+    <div class='left'>
+      
+      <a class='home back-button' href='/'></a>
+      
+    </div>
+
+    <div class='actions'>
+      <ul class='page-actions'>
+        <li class='link github -button hint--bottom' data-hint='Contribute to CheatSheets'>
+          <a target="_blank" rel="noopener" href='https://github.com/holmofy/cs.hufeifei.cn'>
+            <span class='text -visible'>Contribute to CheatSheets</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-regex" class="article article-type-post" itemscope
+  itemprop="blogPost">
+  <div class='body-area'>
+    <header class='main-heading -center' role='banner'>
+      <h1 class='h1'> Regex <em></em></h1>
+    </header>
+
+    <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
+      <h2 id="get-started"><a href="#get-started" class="headerlink" title="get started"></a>get started</h2><p>参考：</p>
+<ul>
+<li>正则表达式教程：<a target="_blank" rel="noopener" href="https://github.com/ziishaned/learn-regex">https://github.com/ziishaned/learn-regex</a></li>
+<li>正则在线测试工具：<a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></li>
+<li>正则表达式入门教程：<a target="_blank" rel="noopener" href="https://posts.hufeifei.cn/basic/regex-basic/">https://posts.hufeifei.cn/basic/regex-basic/</a></li>
+<li>深入理解正则表达式高级教程：<a target="_blank" rel="noopener" href="https://posts.hufeifei.cn/basic/deep-regex/">https://posts.hufeifei.cn/basic/deep-regex/</a></li>
+<li>维基百科：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Regular_expression">https://en.wikipedia.org/wiki/Regular_expression</a></li>
+</ul>
+<h3 id="匹配字符"><a href="#匹配字符" class="headerlink" title="匹配字符"></a>匹配字符</h3><table>
+<thead>
+<tr>
+<th>字符集</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[abc]</code></td>
+<td>匹配a,b,c中的任意一个字符</td>
+</tr>
+<tr>
+<td><code>[^abc]</code></td>
+<td>不匹配a,b,c中的所有字符，<code>^</code>只有作为第一个字符出现才有效</td>
+</tr>
+<tr>
+<td><code>[a-g]</code></td>
+<td>匹配a-g范围内的任意一个字符</td>
+</tr>
+<tr>
+<td><code>[^a-g]</code></td>
+<td>不匹配a-g中的所有字符</td>
+</tr>
+<tr>
+<td><code>[H-N]</code></td>
+<td>匹配H-N范围内的任意一个字符</td>
+</tr>
+<tr>
+<td><code>[0-9]</code></td>
+<td>匹配0-9范围内的任意一个字符</td>
+</tr>
+<tr>
+<td><code>[a-gH-N]</code></td>
+<td>匹配a-g,H-N范围内的任意一个字符</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>[\u4e00-\u9fa5]</code>匹配中文字符</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>通配符：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td><code>[^\n\r­]</code>,匹配非换行符</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>space,空白字符,即换行,制表,空格等字符</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td><code>[^\s]</code></td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>digit: <code>[0-9]</code></td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td><code>[^\d]</code></td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>word: <code>[0-9A-Za-z_]</code></td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td><code>[^\w]</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>基础字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\t</code></td>
+<td>制表符(Tab)</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车(Return)</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行(NewLine)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>通配符(Java)</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\p&#123;ASCII&#125;</code></td>
+<td><code>[\x00-\x7F]</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>不同操作系统换行符不一样：<br>Linux: \n<br>Windows: \r\n<br>MacOS: \r<br>主要由于原来打字机，回车和换行是两个不同的动作指令</p>
+</blockquote>
+<h3 id="频次范围"><a href="#频次范围" class="headerlink" title="频次范围"></a>频次范围</h3><table>
+<thead>
+<tr>
+<th>字符频次</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#123;3&#125;</code></td>
+<td>前面匹配项出­现3次­,等价­于<code>&#123;3,3&#125;</code></td>
+</tr>
+<tr>
+<td><code>&#123;3,6&#125;</code></td>
+<td>前面的匹配项­出现3到6次</td>
+</tr>
+<tr>
+<td><code>&#123;3,&#125;</code></td>
+<td>前面的匹配项­至少出现3次</td>
+</tr>
+<tr>
+<td><code>&#123;0,6&#125;</code></td>
+<td>前面的匹配项­最多出现6次</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>通配符：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td><code>&#123;0,&#125;</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>&#123;1,&#125;</code></td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td><code>&#123;0,1&#125;</code></td>
+</tr>
+<tr>
+<td><code>\w*</code></td>
+<td>贪婪模式</td>
+</tr>
+<tr>
+<td><code>\w*?</code></td>
+<td>非贪婪模式</td>
+</tr>
+</tbody></table>
+<h3 id="匹配组"><a href="#匹配组" class="headerlink" title="匹配组"></a>匹配组</h3><table>
+<thead>
+<tr>
+<th>匹配捕获组</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>(a|b)</code></td>
+<td>匹配a或b并捕获</td>
+</tr>
+<tr>
+<td><code>(...)</code></td>
+<td>捕获组</td>
+</tr>
+<tr>
+<td><code>(?:...)</code></td>
+<td>非捕获组</td>
+</tr>
+<tr>
+<td><code>(?&lt;­nam­e&gt;...)­</code><br/><code>(?­&#39;na­me&#39;...)</code></td>
+<td>命名捕获组,­nam­e可以自定义</td>
+</tr>
+<tr>
+<td><code>(?(con­dit­ion­)tr­ue_­reg­ex|­fal­se_­regex)</code></td>
+<td>条件匹配</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>group(­0)</code>用­于获取­整个匹­配串的­匹配结­果，<code>g­rou­p(&gt;­0)</code>则­可以从­整个匹­配串的­结果中­获取子捕获组。<br>注意：jav­a1.7­之后­才支持­命名捕­获组（­gro­up方­法传入­字符串­nam­e作为­参数）­，js­和py­tho­n暂时­还不支­持命名捕获组。</p>
+</blockquote>
+<h3 id="定点符-锚点"><a href="#定点符-锚点" class="headerlink" title="定点符(锚点)"></a>定点符(锚点)</h3><table>
+<thead>
+<tr>
+<th>定点符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>^</code></td>
+<td>字符串开始符</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>字符串结尾符</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>bounda­ry,单词边界</td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>非单词边界</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>定点断言</th>
+<th>向前</th>
+<th>向后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>肯定断言</td>
+<td><code>(?&lt;­­=exp)</code></td>
+<td><code>(?=exp)</code></td>
+</tr>
+<tr>
+<td>否定断言</td>
+<td><code>(?&lt;­­!exp)</code></td>
+<td><code>(?!exp)</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>\b(\w+­)\b­</code>等价于<code>­(?&lt;­=\W­?)(­\w+­)(?­=\W?)</code></p>
+</blockquote>
+
+    </main>
+  </div>
+
+  <div id="/regex/" class='pre-footer leancloud_visitors' data-flag-title="Regex" data-js-no-preview>
+    <i class='icon'></i>
+    <p class="leancloud-visitors-count" style="margin-top: 0;"></p>
+  </div>
+
+</article>
+
+  <div id="vcomments" style="max-width: 1232px;margin: 0 auto;"></div>
+  <script>
+      window.addEventListener('load', function () {
+          new Valine({"el":"#vcomments","enable":true,"appId":"1G4BM5BM5FWY8sHttxI7RzmK-gzGzoHsz","appKey":"HpeTK86qFg08p2i329bvg2os","notify":false,"verify":false,"pageSize":10,"avatar":"mm","lang":"zh-cn","placeholder":"Just go go","visitor":true,"recordIP":true});
+      });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/keep-markup/prism-keep-markup.min.js"></script>
+
+<script src="/js/article.js"></script>
+
+</section>
+      </div>
+    </div>                
+    <!-- <nav id="mobile-nav">
+  
+</nav> -->
+    <!-- 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+
+ -->
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202020"/>
+  
+    <meta name="keywords" content="java,jvm,参数调优,参考手册" />
+  
+
+    
+    <meta name="description" content="jvm8调优参考手册" />
+  
+  
+  
+
+
+  
+  <title>java8-jvm | Cheat Sheets</title>
+  
+    <link rel="icon" href="/img/favicon.min.webp">
+  
+  
+<link rel="stylesheet" href="/css/bundle.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-H58NSPXYPF');
+  </script>
+  <script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "9nz5jukf69");
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <nav class='top-nav' data-js-no-preview role='navigation'>
+  <div class='container'>
+    <div class='left'>
+      
+      <a class='home back-button' href='/'></a>
+      
+    </div>
+
+    <div class='actions'>
+      <ul class='page-actions'>
+        <li class='link github -button hint--bottom' data-hint='Contribute to CheatSheets'>
+          <a target="_blank" rel="noopener" href='https://github.com/holmofy/cs.hufeifei.cn'>
+            <span class='text -visible'>Contribute to CheatSheets</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-java8-jvm" class="article article-type-post" itemscope
+  itemprop="blogPost">
+  <div class='body-area'>
+    <header class='main-heading -center' role='banner'>
+      <h1 class='h1'> java8-jvm <em></em></h1>
+    </header>
+
+    <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
+      <h2 id="get-started"><a href="#get-started" class="headerlink" title="get started"></a>get started</h2><p>参考：</p>
+<ul>
+<li><a href="https://blog.hufeifei.cn/2018/12/Java/jvm-gc/">https://blog.hufeifei.cn/2018/12/Java/jvm-gc/</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html">https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html</a></li>
+</ul>
+<pre><code class="language-bash">java [options] classname [args]
+java [options] -jar filename [args]
+</code></pre>
+<div class="plantuml"><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css"  preserveAspectRatio="none"  version="1.1" viewBox="0 0 730 324"  zoomAndPan="magnify"><defs/><g><line style="stroke:#181818;stroke-width:1.5;" x1="253" x2="253" y1="63.9688" y2="83.9688"/><rect fill="#EEEEEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="66" x="220" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="230" y="105.1074">JVM内存</text><line style="stroke:#181818;stroke-width:1.5;" x1="196.5" x2="253" y1="149.9219" y2="149.9219"/><rect fill="#AABBEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="57" x="139.5" y="132.9375"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="149.5" y="154.0762">Java堆</text><line style="stroke:#181818;stroke-width:1.5;" x1="110.5" x2="168" y1="198.8906" y2="198.8906"/><rect fill="#AAAAEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="81" x="29.5" y="181.9063"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="61" x="39.5" y="203.0449">YoungGen</text><line style="stroke:#181818;stroke-width:1.5;" x1="60" x2="70" y1="247.8594" y2="247.8594"/><rect fill="#BBBBEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="50" x="10" y="230.875"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="30" x="20" y="252.0137">Eden</text><line style="stroke:#181818;stroke-width:1.5;" x1="70" x2="80" y1="247.8594" y2="247.8594"/><rect fill="#BBBBEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="78" x="80" y="230.875"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="58" x="90" y="252.0137">Survivor0</text><line style="stroke:#181818;stroke-width:1.5;" x1="70" x2="80" y1="296.8281" y2="296.8281"/><rect fill="#BBBBEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="77" x="80" y="279.8438"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="57" x="90" y="300.9824">Survivor1</text><line style="stroke:#181818;stroke-width:1.5;" x1="70" x2="70" y1="215.875" y2="296.8281"/><line style="stroke:#181818;stroke-width:1.5;" x1="168" x2="178" y1="198.8906" y2="198.8906"/><rect fill="#CCCCEE" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="65" x="178" y="181.9063"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="45" x="188" y="203.0449">OldGen</text><line style="stroke:#181818;stroke-width:1.5;" x1="168" x2="168" y1="166.9063" y2="198.8906"/><line style="stroke:#181818;stroke-width:1.5;" x1="253" x2="409" y1="149.9219" y2="149.9219"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="80" x="409" y="132.9375"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="419" y="154.0762">Non-Heap</text><line style="stroke:#181818;stroke-width:1.5;" x1="439" x2="449" y1="198.8906" y2="198.8906"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="106" x="333" y="181.9063"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="86" x="343" y="203.0449">Thread Stacks</text><line style="stroke:#181818;stroke-width:1.5;" x1="439" x2="449" y1="247.8594" y2="247.8594"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="128" x="311" y="230.875"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="108" x="321" y="252.0137">NIO Direct Buffers</text><line style="stroke:#181818;stroke-width:1.5;" x1="439" x2="449" y1="296.8281" y2="296.8281"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="176" x="263" y="279.8438"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="156" x="273" y="300.9824">Compressed Class Space</text><line style="stroke:#181818;stroke-width:1.5;" x1="449" x2="459" y1="198.8906" y2="198.8906"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="87" x="459" y="181.9063"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="67" x="469" y="203.0449">MetaSpace</text><line style="stroke:#181818;stroke-width:1.5;" x1="449" x2="459" y1="247.8594" y2="247.8594"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="93" x="459" y="230.875"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="469" y="252.0137">Code Cache</text><line style="stroke:#181818;stroke-width:1.5;" x1="449" x2="459" y1="296.8281" y2="296.8281"/><rect fill="#DDDDDD" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="63" x="459" y="279.8438"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="43" x="469" y="300.9824">Other...</text><line style="stroke:#181818;stroke-width:1.5;" x1="449" x2="449" y1="166.9063" y2="296.8281"/><line style="stroke:#181818;stroke-width:1.5;" x1="253" x2="253" y1="117.9375" y2="149.9219"/><line style="stroke:#181818;stroke-width:1.5;" x1="600.5" x2="600.5" y1="63.9688" y2="83.9688"/><rect fill="#CC3333" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="57" x="572" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="582" y="105.1074">Native</text><line style="stroke:#181818;stroke-width:1.5;" x1="600.5" x2="610.5" y1="149.9219" y2="149.9219"/><rect fill="#CC4444" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="109" x="610.5" y="132.9375"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="89" x="620.5" y="154.0762">native libraries</text><line style="stroke:#181818;stroke-width:1.5;" x1="600.5" x2="600.5" y1="117.9375" y2="149.9219"/><line style="stroke:#181818;stroke-width:1.5;" x1="253" x2="600.5" y1="63.9688" y2="63.9688"/><rect fill="#F1F1F1" height="33.9688" style="stroke:#181818;stroke-width:1.5;" width="104" x="374.75" y="10"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="384.75" y="31.1387">java运行时内存</text><line style="stroke:#181818;stroke-width:1.5;" x1="426.75" x2="426.75" y1="43.9688" y2="63.9688"/><!--MD5=[e3fec2bd6012fa9fa4eb4489c3d64b84]
+@startwbs
+* java运行时内存
+**[#eee] JVM内存
+***[#abe]< Java堆
+****[#aae]< YoungGen
+*****[#bbe]< Eden
+*****[#bbe]> Survivor0
+*****[#bbe]> Survivor1
+****[#cce]> OldGen
+***[#ddd]> Non-Heap
+****[#ddd]< Thread Stacks
+****[#ddd]< NIO Direct Buffers
+****[#ddd]< Compressed Class Space
+****[#ddd]> MetaSpace
+****[#ddd]> Code Cache
+****[#ddd]> Other...
+**[#c33] Native
+***[#c44] native libraries
+@endwbs
+
+PlantUML version 1.2022.3(Tue Mar 29 16:10:57 UTC 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></div>
+
+<h3 id="HotSpot-JVM可用GC类型"><a href="#HotSpot-JVM可用GC类型" class="headerlink" title="HotSpot JVM可用GC类型"></a>HotSpot JVM可用GC类型</h3><table>
+<thead>
+<tr>
+<th>年轻代回收算法</th>
+<th>老年代回收算法</th>
+<th>GC启用参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serial<br/>(DefNew))</td>
+<td>Serial Mark Sweep <br/>Compact(PSOldGen)</td>
+<td><code>-XX:+UseSerialGC</code></td>
+</tr>
+<tr>
+<td>Parallel scavenge<br/>(PSYoungGen)</td>
+<td>Serial Mark Sweep <br/>Compact(PSOldGen)</td>
+<td><code>-XX:+UseParallelGC</code>(默认)</td>
+</tr>
+<tr>
+<td>Parallel scavenge<br/>(PSYoungGen))</td>
+<td>Parallel Mark Sweep <br/>Compact(ParOldGen)</td>
+<td><code>-XX:+UseParallelOldGC</code><br/>(随<code>-XX:+UseParallelGC</code>开启)</td>
+</tr>
+<tr>
+<td>Parallel<br/>(ParNew))</td>
+<td>Serial Mark Sweep <br/>Compact(PSOldGen)</td>
+<td><code>-XX:+UseParNewGC</code><br/>(随<code>-XX:+UseConcMarkSweepGC</code>开启)</td>
+</tr>
+<tr>
+<td>Serial<br/>(DefNew))</td>
+<td>Concurrent Mark Sweep</td>
+<td><code>-XX:-UseParNewGC</code> <br/><code>-XX:+UseConcMarkSweepGC</code></td>
+</tr>
+<tr>
+<td>Parallel<br/>(ParNew))</td>
+<td>Concurrent Mark Sweep</td>
+<td><code>-XX:+UseParNewGC</code> <br/><code>-XX:+UseConcMarkSweepGC</code></td>
+</tr>
+<tr>
+<td>G1(Garbage First)</td>
+<td>G1(Garbage First)</td>
+<td><code>-XX:+UseG1GC</code></td>
+</tr>
+</tbody></table>
+<h3 id="GC日志"><a href="#GC日志" class="headerlink" title="GC日志"></a>GC日志</h3><table>
+<thead>
+<tr>
+<th>GC日志详情参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-verbose:gc</code><br/><code>-XX:+PrintGCPrint</code></td>
+<td>打印基本的GC信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCDetails</code></td>
+<td>打印详细的GC信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCTimeStamps</code></td>
+<td>打印GC事件的timestamps</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCDateStamps</code></td>
+<td>以date stamps的形式打印GC事件</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintReferenceGC</code></td>
+<td>STW阶段打印reference processing</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCCause</code></td>
+<td>添加GC的原因</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintAdaptiveSizePolicy</code></td>
+<td>输出自适应的分代大小</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintPromotionFailure</code></td>
+<td>输出promotion失败的信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCApplicationStoppedTime</code></td>
+<td>显示应用程序在安全点停止的时间</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCApplicationConcurrentTime</code></td>
+<td>是应用程序在不停止的情况下工作的时间,即两个连续安全点之间的时间</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>GC日志输出参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-Xloggc:filename</code></td>
+<td>将GC日志输出到文件</td>
+</tr>
+<tr>
+<td><code>-XX:ErrorFile=filename</code></td>
+<td>GC错误日志重定向</td>
+</tr>
+<tr>
+<td><code>-XX:LogFile=path</code></td>
+<td>JVM日志重定向</td>
+</tr>
+<tr>
+<td><code>-XX:+UseGCLogFileRotation</code></td>
+<td>开启滚动的GC日志</td>
+</tr>
+<tr>
+<td><code>-XX:GCLogFileSize=512m</code></td>
+<td>GC日志文件的最大值</td>
+</tr>
+<tr>
+<td><code>-XX:NumberOfGCLogFiles=5</code></td>
+<td>GC日志文件的个数</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>其他GC日志信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+PrintTLAB</code></td>
+<td>输出TLAB信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintPLAB</code></td>
+<td>输出PLAB信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintOldPLAB</code></td>
+<td>输出old space的PLAB信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintGCTaskTimeStamps</code></td>
+<td>输出GC work thread task的timestamps</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintHeapAtGC</code></td>
+<td>GC的heap信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintHeapAtSIGBREAK</code></td>
+<td>接收到signal的时候的heap信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintClassHistogramAfterFullGC</code></td>
+<td>full GC后的class直方图信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintClassHistogramBeforeFullGC</code></td>
+<td>full GC之前的class直方图信息</td>
+</tr>
+</tbody></table>
+<h3 id="内存大小调整"><a href="#内存大小调整" class="headerlink" title="内存大小调整"></a>内存大小调整</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-Xmnsize</code></td>
+<td>young gen的初始化和最大值</td>
+</tr>
+<tr>
+<td><code>-XX:NewSize</code></td>
+<td>young gen的初始化大小</td>
+</tr>
+<tr>
+<td><code>-XX:MaxNewSize</code></td>
+<td>young gen的最大值</td>
+</tr>
+<tr>
+<td><code>-Xmssize</code></td>
+<td><code>-XX:InitialHeapSize=size</code> heap的初始值</td>
+</tr>
+<tr>
+<td><code>-Xmxsize</code></td>
+<td><code>-XX:MaxHeapSize</code> heap的最大值</td>
+</tr>
+<tr>
+<td><code>-Xsssize</code></td>
+<td><code>-XX:ThreadStackSize</code> Thread stack size</td>
+</tr>
+<tr>
+<td><code>-XX:MaxDirectMemorySize=size</code></td>
+<td>设置NIO的最大direct-buffer size</td>
+</tr>
+<tr>
+<td><code>-XX:ConcGCThreads=threads</code></td>
+<td>concurrent GC的线程个数</td>
+</tr>
+<tr>
+<td><code>-XX:+DisableExplicitGC</code></td>
+<td>禁止显式调用System.gc()</td>
+</tr>
+<tr>
+<td><code>-XX:InitialSurvivorRatio=ratio</code></td>
+<td>survivor space相对Eden的比例</td>
+</tr>
+<tr>
+<td><code>-XX:MaxMetaspaceSize=size</code></td>
+<td>元数据区域的最大大小</td>
+</tr>
+<tr>
+<td><code>-XX:MetaspaceSize=size</code></td>
+<td>首次触发GC的class元数据区域大小</td>
+</tr>
+<tr>
+<td><code>-XX:NewRatio=ratio</code></td>
+<td>young和old区域的大小比率</td>
+</tr>
+<tr>
+<td><code>-XX:SurvivorRatio=ratio</code></td>
+<td>eden和survivor大小的比率</td>
+</tr>
+<tr>
+<td><code>-XX:+UseAdaptiveSizePolicy</code></td>
+<td>使用自适应的分代大小策略</td>
+</tr>
+<tr>
+<td><code>-XX:CompressedClassSpaceSize=1g</code></td>
+<td>compressed class space大小</td>
+</tr>
+<tr>
+<td><code>-XX:InitialCodeCacheSize=256m</code></td>
+<td>codeCache的初始化大小</td>
+</tr>
+<tr>
+<td><code>-XX:ReservedCodeCacheSize=512m</code></td>
+<td>codeCache的最大大小</td>
+</tr>
+<tr>
+<td><code>-XX:MaxDirectMemorySize=2g</code></td>
+<td>NIO direct buffer的最大值</td>
+</tr>
+</tbody></table>
+<h3 id="Thread配置"><a href="#Thread配置" class="headerlink" title="Thread配置"></a>Thread配置</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:TLABSize=size</code></td>
+<td>TLAB的初始大小</td>
+</tr>
+<tr>
+<td><code>-XX:+UseTLAB</code></td>
+<td>开启TLAB</td>
+</tr>
+<tr>
+<td><code>-XX:+ResizeTLAB</code></td>
+<td>允许JVM对TLAB进行调整</td>
+</tr>
+<tr>
+<td><code>-XX:MinTLABSize=64k</code></td>
+<td>最小TLAB大小</td>
+</tr>
+</tbody></table>
+<h3 id="G1调优参数"><a href="#G1调优参数" class="headerlink" title="G1调优参数"></a>G1调优参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:G1HeapRegionSize=32m</code></td>
+<td>heap区域的大小</td>
+</tr>
+<tr>
+<td><code>-XX:G1ReservePercent=10</code></td>
+<td>设置预留空闲内存百分比，以降低内存溢出的风险</td>
+</tr>
+<tr>
+<td><code>-XX:G1MixedGCCountTarget=8</code></td>
+<td>一个混合收集周期中包含多少次混合收集</td>
+</tr>
+<tr>
+<td><code>-XX:G1HeapWastePercent=10</code></td>
+<td>设置浪费的堆内存百分比，当可回收百分比小于浪费百分比时，JVM就不会启动混合垃圾收</td>
+</tr>
+<tr>
+<td><code>-XX:MaxGCPauseMillis=500</code></td>
+<td>GC的最大暂停时间</td>
+</tr>
+</tbody></table>
+<h3 id="VM通用参数"><a href="#VM通用参数" class="headerlink" title="VM通用参数"></a>VM通用参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:ObjectAlignmentInBytes=alignment</code></td>
+<td>Java对象的对其字节大小</td>
+</tr>
+<tr>
+<td><code>-XX:-UseBiasedLocking</code></td>
+<td>禁止使用偏向锁</td>
+</tr>
+<tr>
+<td><code>-XX:-UseCompressedOops</code></td>
+<td>停止使用对象指针压缩</td>
+</tr>
+</tbody></table>
+<h3 id="通用GC参数"><a href="#通用GC参数" class="headerlink" title="通用GC参数"></a>通用GC参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-Xnoclassgc</code></td>
+<td>禁用classes的GC</td>
+</tr>
+<tr>
+<td><code>-XX:ActiveProcessorCount=x</code></td>
+<td>重写VM使用的CPU核数</td>
+</tr>
+<tr>
+<td><code>-XX:+AggressiveHeap</code></td>
+<td>开启java heap优化</td>
+</tr>
+<tr>
+<td><code>-XX:+AlwaysPreTouch</code></td>
+<td>在main方法执行之前将所有的page都加载到heap中</td>
+</tr>
+<tr>
+<td><code>-XX:InitiatingHeapOccupancyPercent=percent</code></td>
+<td>触发GC的heap使用比例</td>
+</tr>
+<tr>
+<td><code>-XX:MaxGCPauseMillis=time</code></td>
+<td>最大的GC暂停时间</td>
+</tr>
+<tr>
+<td><code>-XX:MaxHeapFreeRatio=percent</code></td>
+<td>GC之后最大的Heap释放比例</td>
+</tr>
+<tr>
+<td><code>-XX:MinHeapFreeRatio=percent</code></td>
+<td>GC之后最小的Heap释放比例</td>
+</tr>
+<tr>
+<td><code>-XX:TargetSurvivorRatio=percent</code></td>
+<td>young GC之后Survivor的目标比例</td>
+</tr>
+<tr>
+<td><code>-XX:+ScavengeBeforeFullGC</code></td>
+<td>在fullGC之前运行youngGC</td>
+</tr>
+<tr>
+<td><code>-XX:StringDeduplicationAgeThreshold=threshold</code></td>
+<td>字符串去重的最小Age数</td>
+</tr>
+<tr>
+<td><code>-XX:+UseStringDeduplication</code></td>
+<td>开启字符串去重</td>
+</tr>
+</tbody></table>
+<h3 id="GC并发线程控制"><a href="#GC并发线程控制" class="headerlink" title="GC并发线程控制"></a>GC并发线程控制</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:ParallelGCThreads=threads</code></td>
+<td>设置STW的垃圾收集线程数</td>
+</tr>
+<tr>
+<td><code>-XX:+ParallelRefProcEnabled</code></td>
+<td>开启并发reference processing</td>
+</tr>
+<tr>
+<td><code>-XX:+UseGCOverheadLimit</code></td>
+<td>OutOfMemoryError之前JVM在GC上使用的时间比例</td>
+</tr>
+<tr>
+<td><code>-XX:ConcGCThreads</code> = n</td>
+<td>设置并行标记线程的数量Young space tenuring</td>
+</tr>
+<tr>
+<td><code>-XX:InitialTenuringThreshold=8</code></td>
+<td>设置保有年龄阀值,就是一个对象多少age之后会被升级到old space</td>
+</tr>
+<tr>
+<td><code>-XX:MaxTenuringThreshold=15</code></td>
+<td>最大的保有年龄阈值</td>
+</tr>
+<tr>
+<td><code>-XX:PretenureSizeThreshold=2m</code></td>
+<td>超出该阈值，对象将会被直接分配到old space</td>
+</tr>
+<tr>
+<td><code>-XX:+AlwaysTenure</code></td>
+<td>将young space中的survivor对象直接提升到old space</td>
+</tr>
+<tr>
+<td><code>-XX:+NeverTenure</code></td>
+<td>除非survivor space不能容纳该对象了，<br/>否则不会提升到old space</td>
+</tr>
+</tbody></table>
+<h3 id="CMS初始化参数"><a href="#CMS初始化参数" class="headerlink" title="CMS初始化参数"></a>CMS初始化参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+UseCMSInitiatingOccupancyOnly</code></td>
+<td>只是用设定的回收阈值,如果不指定,JVM仅在第一次使用设定值,后续则自动调整</td>
+</tr>
+<tr>
+<td><code>-XX:CMSInitiatingOccupancyFraction=70</code></td>
+<td>设定CMS在对内存占用率达到70%的时候开始GC</td>
+</tr>
+<tr>
+<td><code>-XX:CMSBootstrapOccupancy=50</code></td>
+<td>用于触发CMS收集bootstrap统计信息的比率</td>
+</tr>
+<tr>
+<td><code>-XX:CMSTriggerRatio=70</code></td>
+<td>触发CMS的最小的Heap free比率</td>
+</tr>
+<tr>
+<td><code>-XX:CMSTriggerInterval=60000</code></td>
+<td>定期触发CMS收集</td>
+</tr>
+</tbody></table>
+<h3 id="CMS-Stop-the-world调优"><a href="#CMS-Stop-the-world调优" class="headerlink" title="CMS Stop the world调优"></a>CMS Stop the world调优</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:CMSWaitDuration=30000</code></td>
+<td>CMS被触发后，等待下一次年轻代执行标记的时间</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSScavengeBeforeRemark</code></td>
+<td>在CMS GC前启动一次ygc，目的在于减少old gen对ygc gen的引用</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSScheduleRemarkEdenSizeThreshold</code></td>
+<td>Eden使用比率小于该值，则不会触发remark</td>
+</tr>
+<tr>
+<td><code>-XX:CMSScheduleRemarkEdenPenetration=20</code></td>
+<td>触发remark的Eden使用比率</td>
+</tr>
+</tbody></table>
+<h3 id="CMS并发参数"><a href="#CMS并发参数" class="headerlink" title="CMS并发参数"></a>CMS并发参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:+CMSParallelInitialMarkEnabled</code></td>
+<td>是否开启parallel initial mark</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSParallelRemarkEnabled</code></td>
+<td>是否开启parallel remark</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSParallelSurvivorRemarkEnabled</code></td>
+<td>是否开启Survivor的parallel remark</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSConcurrentMTEnabled</code></td>
+<td>并发阶段是否使用多线程</td>
+</tr>
+</tbody></table>
+<h3 id="CMS调试参数"><a href="#CMS调试参数" class="headerlink" title="CMS调试参数"></a>CMS调试参数</h3><table>
+<thead>
+<tr>
+<th>VM参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-XX:PrintCMSStatistics=1</code></td>
+<td>输出CMS的统计信息</td>
+</tr>
+<tr>
+<td><code>-XX:+PrintCMSInitiationStatistics</code></td>
+<td>输出CMS初始化信息</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSDumpAtPromotionFailure</code></td>
+<td>promotion失败后，dump old generation的状态</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSPrintChunksInDump</code></td>
+<td>打印free chunks的信息</td>
+</tr>
+<tr>
+<td><code>-XX:+CMSPrintObjectsInDump</code></td>
+<td>打印allocated objects的信息</td>
+</tr>
+</tbody></table>
+
+    </main>
+  </div>
+
+  <div id="/java8-jvm/" class='pre-footer leancloud_visitors' data-flag-title="java8-jvm" data-js-no-preview>
+    <i class='icon'></i>
+    <p class="leancloud-visitors-count" style="margin-top: 0;"></p>
+  </div>
+
+</article>
+
+  <div id="vcomments" style="max-width: 1232px;margin: 0 auto;"></div>
+  <script>
+      window.addEventListener('load', function () {
+          new Valine({"el":"#vcomments","enable":true,"appId":"1G4BM5BM5FWY8sHttxI7RzmK-gzGzoHsz","appKey":"HpeTK86qFg08p2i329bvg2os","notify":false,"verify":false,"pageSize":10,"avatar":"mm","lang":"zh-cn","placeholder":"Just go go","visitor":true,"recordIP":true});
+      });
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/plugins/keep-markup/prism-keep-markup.min.js"></script>
+
+<script src="/js/article.js"></script>
+
+</section>
+      </div>
+    </div>                
+    <!-- <nav id="mobile-nav">
+  
+</nav> -->
+    <!-- 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+
+ -->
+  </div>
+
+</body>
+</html>
