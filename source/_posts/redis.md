@@ -204,7 +204,7 @@ References:
 
 | 命令                                  | 功能     |
 | ------------------------------------- | ------------ |
-| `bitcount key [start end [BYTE | BIT]]` | 统计start-end 置1的数量 bit按位 byte按字节 |
+| `bitcount key [start end [BYTE \| BIT]]` | 统计start-end 置1的数量 bit按位 byte按字节 |
 | `bitop operation destkey key [...]` | 对多个位图进行逻辑运算（and、or、xor、not），并将结果存放至 destkey |
 
 ### HyperLogLog(基数)
@@ -331,7 +331,7 @@ References:
 | ------------------------ | ------------ |
 | `info [section]`          | 查看服务器信息      |
 | `time`                    | 获取服务器时间      |
-| `shutdown [save | nosave]`| 关闭服务器         |
+| `shutdown [save \| nosave]`| 关闭服务器         |
 
 | 命令                     | 功能           |
 | ------------------------ | ------------ |
