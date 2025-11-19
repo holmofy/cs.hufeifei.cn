@@ -21,11 +21,13 @@ References:
 | `sort key [BY pattern] ...`                 | 对列表或集合排序     |
 
 | 命令                                          | 功能           |
+| ------------------------------------------- | ------------ |
 | `dbsize`                                    | 返回当前数据库键数量   |
 | `exists key [key ...]`                      | 检查一个或多个键是否存在 |
 | `type key`                                  | 返回键的类型       |
 
 | 命令                                          | 功能           |
+| ------------------------------------------- | ------------ |
 | `rename key newkey`                         | 重命名          |
 | `renamenx key newkey`                       | 新名字不存在时重命名   |
 | `move key db`                               | 将键移动到其他数据库   |
@@ -35,10 +37,12 @@ References:
 | `flushall`                                  | 清空所有数据库      |
 
 | 命令                                          | 功能           |
+| ------------------------------------------- | ------------ |
 | `expire key seconds [...]`                  | 设置键秒级过期时间    |
 | `pexpire key milliseconds [...]`            | 设置键毫秒级过期时间   |
 
 | 命令                                          | 功能           |
+| ------------------------------------------- | ------------ |
 | `ttl key`                                   | 剩余秒级过期时间     |
 | `pttl key`                                  | 剩余毫秒过期时间     |
 | `persist key`                               | 移除过期时间       |
@@ -55,17 +59,20 @@ References:
 | `psetex key ms value`       | 设置值并指定毫秒级过期          |
 
 | 命令                          | 功能                   |
+| ------------------------------- | ------------ |
 | `mset key value [...]`      | 批量设置                 |
 | `mget key [key ...]`        | 批量获取                 |
 | `msetnx key value [...]`    | 批量设置（所有 key 都不存在才成功） |
 
 | 命令                          | 功能                   |
+| -------------------------------- | ------------ |
 | `strlen key`                | 字符串长度                |
 | `setrange key offset value` | 从 offset 开始修改字符串     |
 | `getrange key start end`    | 获取区间字符串              |
 | `append key value`          | 拼接字符串                |
 
 | 命令                          | 功能                   |
+| ---------------------------- | ------------ |
 | `incr key`                  | 自增 1                 |
 | `decr key`                  | 自减 1                 |
 | `incrby key increment`      | 增加指定整数               |
@@ -82,16 +89,19 @@ References:
 | `rpushx key element [...]`               | 右入队（仅列表存在时） |
 
 | 命令                                       | 功能          |
+| ------------------------------------------- | ------------ |
 | `lpop list`                              | 左出队         |
 | `rpop list`                              | 右出队         |
 | `blpop key [...] timeout`                | 阻塞左出队       |
 | `brpop key [...] timeout`                | 阻塞右出队       |
 
 | 命令                                       | 功能          |
+| ------------------------------------------- | ------------ |
 | `rpoplpush source dest`                  | 右出源 → 左入目标  |
 | `brpoplpush source dest`                 | 阻塞版本        |
 
 | 命令                                       | 功能          |
+| ------------------------------------------- | ------------ |
 | `lindex list index`                      | 获取指定下标值     |
 | `llen list`                              | 获取长度        |
 | `lrange list start end`                  | 获取区间        |
@@ -111,15 +121,18 @@ References:
 | `hmget key field [...]`            | 批量获取       |
 
 | 命令                                 | 功能         |
+| ----------------------------------- | ------------ |
 | `hincrby key field increment`      | 字段值自增整数    |
 | `hincrbyfloat key field increment` | 字段值自增浮点数   |
 
 | 命令                                 | 功能         |
+| ------------------------------------- | ------------ |
 | `hexists key field`                | 字段是否存在     |
 | `hlen key`                         | 字段数量       |
 | `hdel key field [...]`             | 删除字段       |
 
 | 命令                                 | 功能         |
+| ----------------------------- | ------------ |
 | `hkeys key`                        | 返回所有字段名    |
 | `hvals key`                        | 返回所有字段值    |
 | `hgetall key`                      | 所有字段和值     |
@@ -135,6 +148,7 @@ References:
 | `srem key member [...]`      | 删除成员        |
 
 | 命令                           | 功能          |
+| -------------------------------- | ------------ |
 | `scard key`                  | 成员数量        |
 | `sismember key member`       | 是否存在        |
 | `srandmember key [count]`    | 随机返回成员（不删除） |
@@ -142,6 +156,7 @@ References:
 | `sscan key cursor [...]`     | 渐进式遍历       |
 
 | 命令                           | 功能          |
+| ------------------------------- | ------------ |
 | `sdiff key [...]`            | 差集          |
 | `sdiffstore dest key [...]`  | 差集存储，存储至destination |
 | `sunion key [...]`           | 并集          |
@@ -159,6 +174,7 @@ References:
 | `zrevrank key member`                | 从大到小排名    |
 
 | 命令                                   | 功能        |
+| --------------------------------- | ------------ |
 | `zcount key min max`                 | 分值范围统计    |
 | `zrange key start stop [...]`        | 区间成员（按分数） |
 | `zrangebyscore key min max [...]`    | 分数区间查询    |
@@ -168,10 +184,12 @@ References:
 | `zremrangebyscore key min max`       | 删除指定分数区间  |
 
 | 命令                                   | 功能        |
+| -------------------------------------- | ------------ |
 | `zinterstore dest numkeys key [...]` | 交集存储      |
 | `zunionstore dest numkeys key [...]` | 并集存储      |
 
 | 命令                                   | 功能        |
+| -------------------------------------- | ------------ |
 | `zlexcount key min max`              | 指定大小范围内的成员数量   |
 | `zrangebylex key min max [...]`      | 按从小打到的顺序返回成员   |
 | `zremrangebylex key min max`         | 从集合里移除指定大小范围的成员    |
@@ -185,6 +203,7 @@ References:
 | `getbit key offset`                 | 获取索引上的二进制值 |
 
 | 命令                                  | 功能     |
+| ------------------------------------- | ------------ |
 | `bitcount key [start end [BYTE | BIT]]` | 统计start-end 置1的数量 bit按位 byte按字节 |
 | `bitop operation destkey key [...]` | 对多个位图进行逻辑运算（and、or、xor、not），并将结果存放至 destkey |
 
@@ -243,6 +262,7 @@ References:
 | `discard`         | 取消事务 |
 
 | 命令                | 功能   |
+| ------------------- | ------------ |
 | `watch key [...]` | 监视一个或者多个键，（上乐观锁）|
 | `unwatch`         | 取消所有键的监视 |
 
@@ -266,10 +286,12 @@ References:
 | `psubscribe pattern [...]`   | 根据模式订阅 |
 
 | 命令                           | 功能         |
+| ----------------------------- | ------------ |
 | `unsubscribe [channel ...]`  | 取消订阅       |
 | `punsubscribe pattern [...]` | 根据模式取消订阅，如果没有提供模式，则取消所有模式订阅 |
 
 | 命令                           | 功能         |
+| ------------------------------------------- | ------------ |
 | `pubsub channels`            | 查看订阅频道     |
 | `pubsub channel`             | 查看频道订阅者数量  |
 | `pubsub numpat`              | 查看被订阅的模式数量 |
@@ -285,29 +307,34 @@ References:
 | `select number`           | 切换数据库        |
 
 | 命令                        | 功能           |
+| ----------------------- | ------------ |
 | `client setname name`     | 设置客户端名称      |
 | `client getname`          | 获取客户端名称      |
 | `client list`             | 查看客户端信息      |
 | `client kill ip:port`     | 杀死客户端        |
 
 | 持久化相关命令             | 功能           |
+| -------------------------- | ------------ |
 | `save`                    | 同步保存 RDB（阻塞） |
 | `bgsave`                  | 异步保存 RDB     |
 | `bgrewriteaof`            | 重写 AOF       |
 | `lastsave`                | 上次持久化时间      |
 
 | 配置相关命令                | 功能           |
+| ---------------------- | ------------ |
 | `config set option value` | 设置配置         |
 | `config get option`       | 获取配置         |
 | `config rewrite`          | 持久化配置        |
 | `config resetstat`        | 重置统计         |
 
 | 命令                     | 功能           |
+| ------------------------ | ------------ |
 | `info [section]`          | 查看服务器信息      |
 | `time`                    | 获取服务器时间      |
 | `shutdown [save | nosave]`| 关闭服务器         |
 
 | 命令                     | 功能           |
+| ------------------------ | ------------ |
 | `slowlog get [n]`         | 获取慢日志        |
 | `slowlog len`             | 慢日志条数        |
 | `slowlog reset`           | 清空慢日志        |
