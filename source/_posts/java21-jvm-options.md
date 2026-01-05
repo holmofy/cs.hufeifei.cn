@@ -1,8 +1,8 @@
 ---
-title: java8-jvm
+title: java21-jvm
 categories: jvm
 keywords: java,jvm,参数调优,参考手册
-description: jvm8调优参考手册
+description: jvm21调优参考手册
 ---
 
 ## get started
