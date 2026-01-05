@@ -74,7 +74,7 @@ Java 9+ 统一使用 `‑Xlog:gc*` 系列（更灵活替代 `PrintGC` 系列�
 
 ![G1 GC](https://github.com/user-attachments/assets/2bde4de7-c612-40e9-b924-a879d663781a)
 > 每个 Region 可以属于年轻代或老年代，动态划分。Mixed GC：并发标记老年代 + 年轻代
-> ![YoungGC](https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html)
+> ![YoungGC](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/images/slide11.png)
 > ![G1 GC过程](https://p0.meituan.net/travelcube/2f56a9a249bc8d74f4f455782abce6be147997.png)
 
 | 参数                                             | 说明              |
