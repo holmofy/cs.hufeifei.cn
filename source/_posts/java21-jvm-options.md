@@ -12,6 +12,7 @@ description: jvm21调优参考手册
 * https://docs.oracle.com/en/java/javase/21/gctuning/
 * https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html
 * https://www.oracle.com/java/technologies/g1gc.html
+* https://wiki.openjdk.org/spaces/shenandoah/pages/25002018/Main
 
 ### HotSpot JVM 启动结构
 
@@ -112,6 +113,8 @@ Java 9+ 统一使用 `‑Xlog:gc*` 系列（更灵活替代 `PrintGC` 系列�
 > 理论上可设置目标停顿，但 ZGC 设计上停顿非常低（<10ms），几乎不依赖这个参数；低延迟堆管理自动完成，通常无需调优停顿
 
 ### Shenandoah GC 参数
+
+![Shenandoah GC](https://cr.openjdk.org/~shade/shenandoah/shenandoah-gc-cycle.png)
 
 | 参数                                    | 说明                         |
 | ------------------------------------- | -------------------------- |
