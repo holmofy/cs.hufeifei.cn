@@ -40,8 +40,6 @@ java [options] -jar filename [args]
 @endwbs
 ```
 
-![java8 内存分布](https://img2018.cnblogs.com/i-beta/819907/201911/819907-20191105152356085-1541592889.png)
-
 ### HotSpot JVM可用GC类型
 
 | 年轻代回收算法                             | 老年代回收算法                                     | GC启用参数                                                |
